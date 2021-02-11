@@ -1,13 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `運用のチラシの裏`,
+    title: `sakakinox.net`,
     author: {
       name: `sakakinox`,
+      summary: `Server enginier`,
     },
     description: ``,
     siteUrl: `https://blog.sakakinox.net/`,
     social: {
       twitter: `sakakinox`,
+      github: `sakakinox`,
     },
   },
   plugins: [
@@ -59,8 +61,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `運用のチラシの裏`,
-        short_name: `運用のチラシの裏`,
+        name: `sakakinox.net`,
+        short_name: `sakakinox.net`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
