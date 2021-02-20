@@ -27,6 +27,8 @@ const Bio = () => {
           }
           social {
             twitter
+            github
+            lastfm
           }
         }
       }
@@ -57,7 +59,8 @@ const Bio = () => {
         
           {author?.summary || null}<br />
           <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a><br />
-          <a href={`https://github.com/${social?.github || ``}`}>Github</a>
+          <a href={`https://github.com/${social?.github || ``}`}>Github</a><br />
+          <a href={`https://last.fm/user/${social?.lastfm || ``}`}>Lastfm</a>
         </p>
       )}
     </div>
