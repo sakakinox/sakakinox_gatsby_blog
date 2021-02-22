@@ -7,10 +7,11 @@ module.exports = {
       summary: `Server enginier`,
     },
     description: ``,
-    siteUrl: `https://blog.sakakinox.net/`,
+    siteUrl: `https://sakakinox.net/`,
     social: {
       twitter: `sakakinox`,
       github: `sakakinox`,
+      lastfm: `sakakinox`,
     },
   },
   plugins: [
