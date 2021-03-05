@@ -1,6 +1,15 @@
-import React from "react"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
+import Typography from '@material-ui/core/Typography';
 import { Link } from "gatsby"
-import NavicationBar from "../components/nav"
+import { theme } from '../styles/theme';
+
+//import NavicationBar from "../components/nav"
 
 
 const Layout = ({ location, title, children }) => {
@@ -10,7 +19,16 @@ const Layout = ({ location, title, children }) => {
 
     header = (
       <header>
-       <NavicationBar title={title} />  
+        <React.Fragment>
+          <Toolbar className="navbar" variant="dense">
+            <Typography variant="h2">
+              <Link  to="/">{title}</Link>
+            </Typography>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+          </Toolbar>
+        </React.Fragment>
       </header>
     )
 
