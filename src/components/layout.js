@@ -8,9 +8,15 @@ import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "gatsby"
 import { theme } from '../styles/theme';
+import Header from './Header';
+import Footer from './Footer';
 
 //import NavicationBar from "../components/nav"
 
+const sections = [
+  //{ title: 'Technology', url: '#' },
+  //{ title: 'Design', url: '#' },
+];
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -19,16 +25,7 @@ const Layout = ({ location, title, children }) => {
 
     header = (
       <header>
-        <React.Fragment>
-          <Toolbar className="navbar" variant="dense">
-            <Typography variant="h2">
-              <Link  to="/">{title}</Link>
-            </Typography>
-            <IconButton>
-              <SearchIcon />
-            </IconButton>
-          </Toolbar>
-        </React.Fragment>
+        <Header title={title} sections={sections}/>
       </header>
     )
 
@@ -38,7 +35,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © sakakinox All rights reserved.
+        <Footer />
       </footer>
     </div>
   )
