@@ -6,8 +6,13 @@
  */
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import IconButton from '@material-ui/core/IconButton';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -58,9 +63,21 @@ const Bio = () => {
           Written by <strong>{author.name}</strong> <br />
         
           {author?.summary || null}<br />
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a><br />
-          <a href={`https://github.com/${social?.github || ``}`}>Github</a><br />
-          <a href={`https://last.fm/user/${social?.lastfm || ``}`}>Lastfm</a>
+          <IconButton>
+            <Link href={`https://twitter.com/${social?.twitter || ``}`}>
+            <TwitterIcon />
+            </Link>
+          </IconButton>
+          <IconButton>
+            <Link href={`https://github.com/${social?.github || ``}`}>
+            <GitHubIcon />
+            </Link>
+          </IconButton>
+          <IconButton>
+            <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
+            <PlayCircleFilledIcon />
+            </Link>
+          </IconButton>
         </p>
       )}
     </div>
