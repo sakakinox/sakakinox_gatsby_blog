@@ -1,16 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-
-const useStyles = makeStyles((theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-  },
-}));
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
