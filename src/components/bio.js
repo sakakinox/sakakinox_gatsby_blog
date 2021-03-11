@@ -8,10 +8,10 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
-import IconButton from '@material-ui/core/IconButton';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import { Grid, IconButton } from "@material-ui/core";
 
 
 const Bio = () => {
@@ -47,40 +47,43 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="bio">
-      {avatar && (
-        <Image
-          fixed={avatar}
-          alt={author?.name || ``}
-          className="bio-avatar"
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
-      )}
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> <br />
-        
-          {author?.summary || null}<br />
-          <IconButton>
-            <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-            <TwitterIcon />
-            </Link>
-          </IconButton>
-          <IconButton>
-            <Link href={`https://github.com/${social?.github || ``}`}>
-            <GitHubIcon />
-            </Link>
-          </IconButton>
-          <IconButton>
-            <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
-            <PlayCircleFilledIcon />
-            </Link>
-          </IconButton>
-        </p>
-      )}
-    </div>
+    <Grid container justify="center" alignItems="center" direction="column">
+      <Grid item xs={12}>
+        {avatar && (
+          <Image
+            fixed={avatar}
+            alt={author?.name || ``}
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+        )}
+      </Grid>
+      <Grid item > 
+        {author?.name && (
+          <p>
+            Written by <strong>{author.name}</strong> <br />
+          
+            {author?.summary || null}<br />
+            <IconButton>
+              <Link href={`https://twitter.com/${social?.twitter || ``}`}>
+              <TwitterIcon />
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link href={`https://github.com/${social?.github || ``}`}>
+              <GitHubIcon />
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
+              <PlayCircleFilledIcon />
+              </Link>
+            </IconButton>
+          </p>
+        )}
+      </Grid>
+    </Grid>
   )
 }
 
