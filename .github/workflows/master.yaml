@@ -12,36 +12,36 @@ jobs:
         - uses: actions/checkout@v2
 
         - name: Install SSH key
-            uses: shimataro/ssh-key-action@v2
-            with:
-                key: ${{ secrets.SSH_KEY }}
-                name: id_ecdsa
-                known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_KEY }}
+            name: id_ecdsa
+            known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
         - name: setup node
-            uses: actions/setup-node@v1
-            with:
-                node-version: '15.x'
+          uses: actions/setup-node@v1
+          with:
+            node-version: '15.x'
 
         - name: Cache dependencies
-            uses: actions/cache@v1
-            with:
-                path: ~/.npm
-                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-node-
+          uses: actions/cache@v1
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
 
         - name: install
-            run: npm ci
+          run: npm ci
 
         - name: format
-            run: npm run format
+          run: npm run format
 
         - name: test
-            run: npm run test
+          run: npm run test
 
         - name: build
-            run: npm run build
+          run: npm run build
 
         - name: deploy
-            run: echo "date >access"|ssh root@${{secrets.SERVER}} 
+          run: echo "date >access"|ssh root@${{secrets.SERVER}} 
