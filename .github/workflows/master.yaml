@@ -11,6 +11,13 @@ jobs:
         steps:
             - uses:  actions/checkout@v2
 
+            - name: Install SSH key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                key: ${{ secrets.SSH_KEY }}
+                name: id_ecdsa
+                known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
             - name: setup node
               uses: actions/setup-node@v1
               with:
@@ -35,4 +42,6 @@ jobs:
 
             - name: build
               run: npm run build
-            
+              
+            - name: deploy
+              run: echo "date >access"|ssh ${{secrets.SERVER}} 
