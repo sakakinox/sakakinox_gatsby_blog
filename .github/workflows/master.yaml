@@ -42,6 +42,6 @@ jobs:
 
             - name: build
               run: npm run build
-              
+
             - name: deploy
-              run: echo "date >access"|ssh ${{secrets.SERVER}} 
+              run: echo "date >access"|ssh root@${{secrets.SERVER}} 
