@@ -16,7 +16,7 @@ jobs:
         　with:
         　  key: ${{ secrets.SSH_KEY }}
         　  name: id_ecdsa
-        　  known_hosts: ${{ secrets.KNOWN_HOSTS }}
+            known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
         - name: setup node
             uses: actions/setup-node@v1
