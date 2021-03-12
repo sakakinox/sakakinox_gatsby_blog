@@ -12,7 +12,7 @@ jobs:
         - uses:  actions/checkout@v2
 
         - name: Install SSH key
-            uses: shimataro/ssh-key-action@v2
+            uses: shimataro/ssh-key-action@v1
             with:
                 key: ${{ secrets.SSH_KEY }}
                 name: id_ecdsa
