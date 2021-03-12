@@ -9,39 +9,39 @@ jobs:
     build-deploy:
         runs-on: ubuntu-20.04
         steps:
-            - uses:  actions/checkout@v2
+        - uses:  actions/checkout@v2
 
-            - name: Install SSH key
-              uses: shimataro/ssh-key-action@v2
-              with:
-                key: ${{ secrets.SSH_KEY }}
-                name: id_ecdsa
-                known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        - name: Install SSH key
+        　uses: shimataro/ssh-key-action@v2
+        　with:
+        　key: ${{ secrets.SSH_KEY }}
+        　name: id_ecdsa
+        　known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-            - name: setup node
-              uses: actions/setup-node@v1
-              with:
-                node-version: '15.x'
+        - name: setup node
+            uses: actions/setup-node@v1
+            with:
+            node-version: '15.x'
 
-            - name: Cache dependencies
-              uses: actions/cache@v1
-              with:
-                path: ~/.npm
-                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                restore-keys:
-                    ${{ runner.os }}-node-
+        - name: Cache dependencies
+            uses: actions/cache@v1
+            with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
 
-            - name: install
-              run: npm ci
+        - name: install
+            run: npm ci
 
-            - name: format
-              run: npm run format
+        - name: format
+            run: npm run format
 
-            - name: test
-              run: npm run test
+        - name: test
+            run: npm run test
 
-            - name: build
-              run: npm run build
+        - name: build
+            run: npm run build
 
-            - name: deploy
-              run: echo "date >access"|ssh root@${{secrets.SERVER}} 
+        - name: deploy
+            run: echo "date >access"|ssh root@${{secrets.SERVER}} 
