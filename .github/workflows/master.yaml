@@ -14,22 +14,22 @@ jobs:
         - name: Install SSH key
         　uses: shimataro/ssh-key-action@v2
         　with:
-        　key: ${{ secrets.SSH_KEY }}
-        　name: id_ecdsa
-        　known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        　  key: ${{ secrets.SSH_KEY }}
+        　  name: id_ecdsa
+        　  known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
         - name: setup node
             uses: actions/setup-node@v1
             with:
-            node-version: '15.x'
+                node-version: '15.x'
 
         - name: Cache dependencies
             uses: actions/cache@v1
             with:
-            path: ~/.npm
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-node-
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                restore-keys: |
+                    ${{ runner.os }}-node-
 
         - name: install
             run: npm ci
