@@ -46,4 +46,4 @@ jobs:
         - name: deploy
           run: |
             echo "date >access"|ssh root@${{secrets.SERVER}} 
-            rsync -av ./public root@{{secrets.SERVER}}:/opt/github/actions/sakakinox_blog/
+            rsync -av ./public root@${{secrets.SERVER}}:/opt/github/actions/sakakinox_blog/
