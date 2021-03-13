@@ -47,3 +47,4 @@ jobs:
           run: |
             echo "date >access"|ssh root@${{secrets.SERVER}} 
             rsync -av ./public root@${{secrets.SERVER}}:/opt/github/actions/sakakinox_blog/
+            echo "lxc file push -r /opt/github/actions/sakakinox_blog/public/ nginx/var/www/static/blog"|ssh root@${{secrets.SERVER}}
