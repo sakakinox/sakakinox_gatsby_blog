@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import EventIcon from '@material-ui/icons/Event';
 
 
 const BlogIndex = ({ data, location }) => {
@@ -46,7 +47,7 @@ const BlogIndex = ({ data, location }) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h2>
-                    <small>{post.frontmatter.date}</small>
+                    <small><EventIcon />{post.frontmatter.date}</small>
                   </header>
                   <section>
                     <p
