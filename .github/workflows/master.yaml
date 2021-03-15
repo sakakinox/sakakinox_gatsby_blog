@@ -35,6 +35,7 @@ jobs:
           run: |
             echo ENV_NAME=\"\">>.env.production
             echo GOOGLE_ANALYTICS_ID=\"${{secrets.GOOGLE_ANALYTICS_ID}}\">>.env.production
+            echo GOOGLE_ADCENSE_ID=\"${{secrets.GOOGLE_ADSENSE_ID}}\">>.env.production
 
         - name: install
           run: npm ci

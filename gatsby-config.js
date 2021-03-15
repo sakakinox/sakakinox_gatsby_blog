@@ -42,6 +42,12 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-plugin-google-adsense`,
+            options: {
+            publisherId: `${process.env.GOOGLE_ADSENSE_ID}`
+            },
+          },
+          {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
