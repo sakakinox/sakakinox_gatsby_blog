@@ -24,12 +24,9 @@ const useStyles = makeStyles({
 export default function Postcard(props) {
   const classes = useStyles();
   const { post } = props;
-  const { title } = props;
-  const { date } = props;
-  const { description } = props;
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={12}>
       <CardActionArea component="a" href={ post.fields.slug }>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
@@ -59,7 +56,4 @@ export default function Postcard(props) {
 
 Postcard.propTypes = {
   post: PropTypes.object,
-  title: PropTypes.string,
-  date: PropTypes.string,
-  description: PropTypes.string
 };
