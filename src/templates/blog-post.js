@@ -1,8 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { graphql } from "gatsby"
+import {CssBaseline, Grid} from '@material-ui/core';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Postcard from "../components/postscard"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -34,32 +35,14 @@ const BlogPostTemplate = ({ data, location }) => {
           <footer>
           </footer>
         </article>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
+        <Grid container spacing={2}>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
+                <Postcard post={previous} />
               )}
-            </li>
-            <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
+                <Postcard post={next} />
               )}
-            </li>
-          </ul>
-        </nav>
+          </Grid>
       </Layout>
     </React.Fragment>
   )
@@ -92,16 +75,23 @@ export const pageQuery = graphql`
       fields {
         slug
       }
+      excerpt(pruneLength: 160)
+      html
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
+        description
       }
     }
     next: markdownRemark(id: { eq: $nextPostId }) {
       fields {
         slug
       }
+      excerpt(pruneLength: 160)
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
+        description
       }
     }
   }
