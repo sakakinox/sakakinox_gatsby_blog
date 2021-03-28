@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import EventIcon from '@material-ui/icons/Event';
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -25,7 +24,7 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <header>
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p><EventIcon />{post.frontmatter.date}</p>
+            <p>{post.frontmatter.date}</p>
           </header>
           <section
             dangerouslySetInnerHTML={{ __html: post.html }}
