@@ -7,7 +7,7 @@ import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published != false)
+  const posts = data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published !== false)
 
 
   if (posts.length === 0) {
@@ -31,7 +31,6 @@ const BlogIndex = ({ data, location }) => {
         <Layout location={location} title={siteTitle}>
           <SEO title="All posts" />
             {posts.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
               return (
                 <Grid container spacing={4}>
                   <Postcard key={post.fields.slug} post={post}/>
