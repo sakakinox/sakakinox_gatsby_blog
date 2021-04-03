@@ -7,7 +7,8 @@ import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published != false)
+
 
   if (posts.length === 0) {
     return (
@@ -24,7 +25,6 @@ const BlogIndex = ({ data, location }) => {
       </React.Fragment>
     )
   }
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -36,7 +36,7 @@ const BlogIndex = ({ data, location }) => {
                 <Grid container spacing={4}>
                   <Postcard key={post.fields.slug} post={post}/>
                 </Grid>
-          )
+              )
         })}
     </Layout>
     </React.Fragment>
@@ -62,6 +62,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          published
         }
       }
     }
