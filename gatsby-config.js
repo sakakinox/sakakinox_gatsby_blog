@@ -1,6 +1,6 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 module.exports = {
   siteMetadata: {
     title: `sakakinox.net`,
@@ -44,7 +44,7 @@ module.exports = {
           {
             resolve: `gatsby-plugin-google-adsense`,
             options: {
-            publisherId: `${process.env.GOOGLE_ADSENSE_ID}`
+              publisherId: `${process.env.GOOGLE_ADSENSE_ID}`,
             },
           },
           {

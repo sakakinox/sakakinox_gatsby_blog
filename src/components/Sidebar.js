@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Bio from './bio';
+import React from "react"
+import PropTypes from "prop-types"
+import { makeStyles } from "@material-ui/core/styles"
+import Grid from "@material-ui/core/Grid"
+import Bio from "./bio"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   sidebarAboutBox: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200],
@@ -12,17 +12,17 @@ const useStyles = makeStyles((theme) => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
   },
-}));
+}))
 
 export default function Sidebar(props) {
-  const classes = useStyles();
-  const { archives, description, social, title } = props;
+  const classes = useStyles()
+  const { archives, description, social, title } = props
 
   return (
     <Grid item xs={12} md={3}>
       <Bio />
     </Grid>
-  );
+  )
 }
 
 Sidebar.propTypes = {
@@ -30,4 +30,4 @@ Sidebar.propTypes = {
   description: PropTypes.string,
   social: PropTypes.array,
   title: PropTypes.string,
-};
+}

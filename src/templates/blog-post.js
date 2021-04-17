@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import {CssBaseline, Grid} from '@material-ui/core';
+import { CssBaseline, Grid } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
@@ -32,17 +32,12 @@ const BlogPostTemplate = ({ data, location }) => {
             itemProp="articleBody"
           />
           <hr />
-          <footer>
-          </footer>
+          <footer></footer>
         </article>
         <Grid container spacing={2}>
-              {previous && (
-                <Postcard post={previous} />
-              )}
-              {next && (
-                <Postcard post={next} />
-              )}
-          </Grid>
+          {previous && <Postcard post={previous} />}
+          {next && <Postcard post={next} />}
+        </Grid>
       </Layout>
     </React.Fragment>
   )
