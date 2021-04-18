@@ -45,12 +45,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0 ) {
+  if (posts.length > 0) {
     posts.forEach((post, index) => {
-      console.log(post.frontmatter.title + " : "  + post.frontmatter.published) 
-      if(post.frontmatter.published != false){
+      console.log(post.frontmatter.title + " : " + post.frontmatter.published)
+      if (post.frontmatter.published != false) {
         const previousPostId = index === 0 ? null : posts[index - 1].id
-        const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+        const nextPostId =
+          index === posts.length - 1 ? null : posts[index + 1].id
         createPage({
           path: post.fields.slug,
           component: blogPost,

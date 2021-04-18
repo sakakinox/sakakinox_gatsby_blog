@@ -8,11 +8,10 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
-import TwitterIcon from '@material-ui/icons/Twitter';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import { Grid, IconButton } from "@material-ui/core";
-
+import TwitterIcon from "@material-ui/icons/Twitter"
+import GitHubIcon from "@material-ui/icons/GitHub"
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled"
+import { Grid, IconButton } from "@material-ui/core"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -59,25 +58,25 @@ const Bio = () => {
           />
         )}
       </Grid>
-      <Grid item > 
+      <Grid item>
         {author?.name && (
           <p>
             Written by <strong>{author.name}</strong> <br />
-          
-            {author?.summary || null}<br />
+            {author?.summary || null}
+            <br />
             <IconButton>
               <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-              <TwitterIcon />
+                <TwitterIcon />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://github.com/${social?.github || ``}`}>
-              <GitHubIcon />
+                <GitHubIcon />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
-              <PlayCircleFilledIcon />
+                <PlayCircleFilledIcon />
               </Link>
             </IconButton>
           </p>

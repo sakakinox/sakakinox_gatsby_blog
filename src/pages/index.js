@@ -1,43 +1,44 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CssBaseline, Grid} from '@material-ui/core/';
+import { CssBaseline, Grid } from "@material-ui/core/"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published !== false)
-
+  const posts = data.allMarkdownRemark.nodes.filter(
+    post => post.frontmatter.published !== false
+  )
 
   if (posts.length === 0) {
     return (
       <React.Fragment>
-      <CssBaseline />
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
+        <CssBaseline />
+        <Layout location={location} title={siteTitle}>
+          <SEO title="All posts" />
+          <p>
+            No blog posts found. Add markdown posts to "content/blog" (or the
+            directory you specified for the "gatsby-source-filesystem" plugin in
+            gatsby-config.js).
+          </p>
+        </Layout>
       </React.Fragment>
     )
   }
   return (
     <React.Fragment>
       <CssBaseline />
-        <Layout location={location} title={siteTitle}>
-          <SEO title="All posts" />
-            {posts.map(post => {
-              return (
-                <Grid container spacing={4}>
-                  <Postcard key={post.fields.slug} post={post}/>
-                </Grid>
-              )
+      <Layout location={location} title={siteTitle}>
+        <SEO title="All posts" />
+        {posts.map(post => {
+          return (
+            <Grid container spacing={4}>
+              <Postcard key={post.fields.slug} post={post} />
+            </Grid>
+          )
         })}
-    </Layout>
+      </Layout>
     </React.Fragment>
   )
 }

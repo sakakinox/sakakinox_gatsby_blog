@@ -1,27 +1,26 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
-import { Container, Grid } from '@material-ui/core';
+import React from "react"
+import Header from "./Header"
+import Footer from "./Footer"
+import Sidebar from "./Sidebar"
+import { Container, Grid } from "@material-ui/core"
 
 //import NavicationBar from "../components/nav"
 
 const sections = [
   //{ title: 'Technology', url: '#' },
   //{ title: 'Design', url: '#' },
-];
+]
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
-    header = (
-      <header>
-        <Header title={title} sections={sections}/>
-      </header>
-    )
-
+  header = (
+    <header>
+      <Header title={title} sections={sections} />
+    </header>
+  )
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
