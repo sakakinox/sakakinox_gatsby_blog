@@ -32,6 +32,7 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
         {posts.map(post => {
+          const title = post.frontmatter.title || post.fields.slug
           return (
             <Grid container spacing={4}>
               <Postcard key={post.fields.slug} post={post} />
