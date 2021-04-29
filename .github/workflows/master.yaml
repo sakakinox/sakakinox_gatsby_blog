@@ -52,6 +52,6 @@ jobs:
         - name: deploy
           run: |
             echo "date >access"|ssh ${{secrets.REMOTE_USER}}@${{secrets.SERVER}} 
-            rsync -av ./public ${{secrets.REMOTE_USER}}@${{secrets.SERVER}}:/opt/github/actions/sakakinox_blog/
+            rsync -av --progress --delete ./public ${{secrets.REMOTE_USER}}@${{secrets.SERVER}}:/opt/github/actions/sakakinox_blog/
             rsync -av .env.production ${{secrets.REMOTE_USER}}@${{secrets.SERVER}}:
             echo "lxc file push -r /opt/github/actions/sakakinox_blog/public/ nginx/var/www/static/blog"|ssh ${{secrets.REMOTE_USER}}@${{secrets.SERVER}}
