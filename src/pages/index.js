@@ -7,9 +7,7 @@ import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes.filter(
-    post => post.frontmatter.published !== false
-  )
+  const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
