@@ -15,4 +15,16 @@ export const theme = createMuiTheme({
       contrastText: "#000000",
     },
   },
+  typography: {
+    fontFamily:[
+      'Noto Sans',
+      'sans-serif',
+    ].join(","),
+    fontSize: 12,
+    h1: {
+      fontsize: "1.75rem"
+    }
+  }
 })
+
+export default theme;
