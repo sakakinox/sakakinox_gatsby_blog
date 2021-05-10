@@ -24,7 +24,20 @@ export const theme = createMuiTheme({
     h1: {
       fontsize: "1.75rem"
     }
-  }
+  },
+    MuiCssBaseline: {
+      styleOverrides: `
+       h1 {
+        color: red;
+      }
+      h2 {
+        color: red;
+      }
+      p {
+        color: #FFFFFF;
+      }
+      `,
+    },
 })
 
 export default theme;
