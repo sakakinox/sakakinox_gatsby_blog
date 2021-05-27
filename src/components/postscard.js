@@ -37,6 +37,7 @@ export default function Postcard(props) {
               <Typography variant="subtitle1" color="textSecondary">
                 {post.frontmatter.date}
               </Typography>
+              <hr />
               <Typography variant="subtitle1" paragraph>
                 {post.frontmatter.description || post.excerpt}
               </Typography>

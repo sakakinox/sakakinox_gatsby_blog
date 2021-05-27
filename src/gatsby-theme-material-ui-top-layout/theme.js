@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles"
+import { red } from "@material-ui/core/colors";
 
 export const theme = createMuiTheme({
   palette: {
@@ -17,27 +18,30 @@ export const theme = createMuiTheme({
   },
   typography: {
     fontFamily:[
-      'Noto Sans',
-      'sans-serif',
+      'Noto Sans JP',
+      'sans'
     ].join(","),
-    fontSize: 12,
-    h1: {
-      fontsize: "1.75rem"
-    }
-  },
-    MuiCssBaseline: {
-      styleOverrides: `
-       h1 {
-        color: red;
-      }
-      h2 {
-        color: red;
-      }
-      p {
-        color: #FFFFFF;
-      }
-      `,
+    fontSize: 15,
+    h1:{
+      fontSize: "2rem"
     },
+  },
+  props: {
+    MuiTypography: {
+      variantMapping: {
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h2',
+        h4: 'h2',
+        h5: 'h2',
+        h6: 'h2',
+        subtitle1: 'h2',
+        subtitle2: 'h2',
+        body1: 'span',
+        body2: 'span',
+      },
+    },
+  },
 })
 
 export default theme;
