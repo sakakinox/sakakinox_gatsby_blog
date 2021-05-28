@@ -7,7 +7,7 @@ import Link from "@material-ui/core/Link"
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography component="div" variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="/">
         sakakinox.net
@@ -33,7 +33,7 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+        <Typography component="div"variant="h6" align="center" gutterBottom>
           {title}
         </Typography>
         <Typography
