@@ -31,17 +31,17 @@ export default function Postcard(props) {
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h2" variant="h5">
+              <Typography component="div" variant="h5">
                 {post.frontmatter.title || post.fields.slug}
               </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
+              <Typography component="div" variant="subtitle1" color="textSecondary">
                 {post.frontmatter.date}
               </Typography>
               <hr />
               <Typography variant="subtitle1" paragraph>
                 {post.frontmatter.description || post.excerpt}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
+              <Typography component="div" variant="subtitle1" color="primary">
                 Continue reading...
               </Typography>
             </CardContent>

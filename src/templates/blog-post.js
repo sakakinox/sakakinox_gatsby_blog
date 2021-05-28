@@ -1,22 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GlobalStyles, CssBaseline, Grid, Typography } from "@material-ui/core"
+import {  CssBaseline, Grid, Typography } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
-//const theme = createTheme({
-//  components: {
-//    MuiCssBaseline: {
-//      styleOverrides: `
-//        h1 {
-//          color: grey;
-//        }
-//      `,
-//    },
-//  },
-//});
+
+
 
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -33,16 +23,16 @@ const BlogPostTemplate = ({ data, location }) => {
           description={post.frontmatter.description || post.excerpt}
         />
         <article
-          className="blogpost"
+          className="blog-post"
           itemScope
           itemType="http://schema.org/Article"
         >
           <header>
-            <Typography variant="h5"  itemProp="headline">{post.frontmatter.title}</Typography>
-            <Typography variant="subtitle1" color="textSecondary"> {post.frontmatter.date} </Typography>
+            <Typography variant="h5"  component="div" itemProp="headline">{post.frontmatter.title}</Typography>
+            <Typography variant="subtitle1" component="div" color="textSecondary"> {post.frontmatter.date} </Typography>
           </header>
           <hr />
-          <Typography  component="div" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Typography className="body" component="div" dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr />
           <footer></footer>
         </article>
