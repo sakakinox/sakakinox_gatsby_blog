@@ -161,13 +161,13 @@
     line-height: var(--lineHeight-relaxed);
     --baseline-multiplier: 0.179;
     --x-height-multiplier: 0.35;
-    margin: var(--spacing-4) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+    margin: var(--spacing-4) var(--spacing-0) var(--spacing-4) var(--spacing-5);
     padding: var(--spacing-0);
   }
   
   ul,
   ol {
-    margin-left: var(--spacing-6);
+    margin-left: var(--spacing-8);
     margin-right: var(--spacing-0);
     padding: var(--spacing-0);
     margin-bottom: var(--spacing-8);
