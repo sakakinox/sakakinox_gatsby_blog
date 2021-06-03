@@ -37,7 +37,7 @@ export default function Header(props) {
           </Link>
         </IconButton>
         <Typography
-          component="h2"
+          component="div"
           variant="h5"
           color="inherit"
           align="center"

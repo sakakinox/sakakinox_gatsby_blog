@@ -66,17 +66,17 @@ const Bio = () => {
             <br />
             <IconButton>
               <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-                <TwitterIcon />
+                <TwitterIcon color="primary" />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://github.com/${social?.github || ``}`}>
-                <GitHubIcon />
+                <GitHubIcon color="primary" />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
-                <PlayCircleFilledIcon />
+                <PlayCircleFilledIcon color="primary" />
               </Link>
             </IconButton>
           </p>

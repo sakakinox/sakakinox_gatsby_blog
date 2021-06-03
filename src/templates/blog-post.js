@@ -1,9 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CssBaseline, Grid } from "@material-ui/core"
+import {  CssBaseline, Grid, Typography } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
+
+
+
+
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -24,13 +28,11 @@ const BlogPostTemplate = ({ data, location }) => {
           itemType="http://schema.org/Article"
         >
           <header>
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
+            <Typography variant="h5"  component="div" itemProp="headline">{post.frontmatter.title}</Typography>
+            <Typography variant="subtitle1" component="div" color="textSecondary"> {post.frontmatter.date} </Typography>
           </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
+          <hr />
+          <Typography className="body" component="div" dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr />
           <footer></footer>
         </article>
