@@ -215,7 +215,9 @@
   }
   
   table {
-    width: 100%;
+    table-layout: fixed;
+    width: 95%;
+    margin-left: var(--spacing-4);
     margin-bottom: var(--spacing-8);
     border-collapse: collapse;
     border-spacing: 0.25rem;
