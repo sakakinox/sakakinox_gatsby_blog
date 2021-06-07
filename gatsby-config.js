@@ -41,12 +41,12 @@ module.exports = {
               maxWidth: 630,
             },
           },
-          {
+          //{
             //resolve: `gatsby-plugin-google-adsense`,
             //options: {
              // publisherId: `${process.env.GOOGLE_ADSENSE_ID}`,
             //},
-          },
+          //},
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
