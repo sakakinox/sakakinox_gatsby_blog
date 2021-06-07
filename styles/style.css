@@ -1,5 +1,5 @@
 /* CSS Custom Properties Definitions */
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 :root {
     --maxWidth-none: "none";
     --maxWidth-xs: 20rem;
