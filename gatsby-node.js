@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = result.data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published !== false)
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       console.log(post.frontmatter.title + " : " + post.frontmatter.published)
-      if (post.frontmatter.published != false) {
+      //if (post.frontmatter.published != false) {
         const previousPostId = index === 0 ? null : posts[index - 1].id
         const nextPostId =
           index === posts.length - 1 ? null : posts[index + 1].id
@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             nextPostId,
           },
         })
-      }
+        
     })
   }
 }
