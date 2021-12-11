@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import {  CssBaseline, Grid, Typography } from "@material-ui/core"
+import { CssBaseline, Grid, Typography } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
