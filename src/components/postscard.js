@@ -26,7 +26,7 @@ export default function Postcard(props) {
   const { post } = props
 
   return (
-    <Grid item xs={12} md={12}>
+    <Grid item xs={12} md={12} marginBottom={2}>
       <CardActionArea component="a" href={post.fields.slug}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>

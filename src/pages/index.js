@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CssBaseline, Grid } from "@mui/material/"
+import { CssBaseline, Grid } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
@@ -34,7 +34,7 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           return (
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
               <Postcard key={post.fields.slug} post={post} />
             </Grid>
           )

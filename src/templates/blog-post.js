@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <hr />
           <footer></footer>
         </article>
-        <Grid container spacing={2}>
+        <Grid container spacing={0}>
           {previous && <Postcard post={previous} />}
           {next && <Postcard post={next} />}
         </Grid>
