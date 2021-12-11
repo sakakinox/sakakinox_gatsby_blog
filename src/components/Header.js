@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { makeStyles } from "@material-ui/core/styles"
-import Toolbar from "@material-ui/core/Toolbar"
-import IconButton from "@material-ui/core/IconButton"
-import HomeIcon from "@material-ui/icons/Home"
-import Typography from "@material-ui/core/Typography"
-import Link from "@material-ui/core/Link"
+import { makeStyles } from "@mui/styles"
+import Toolbar from "@mui/material/Toolbar"
+import IconButton from "@mui/material/IconButton"
+import HomeIcon from "@mui/icons-material/Home"
+import Typography from "@mui/material/Typography"
+import Link from "@mui/material/Link"
 
 const useStyles = makeStyles(theme => ({
   toolbar: {

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import {  CssBaseline, Grid, Typography } from "@material-ui/core"
+import { CssBaseline, Grid, Typography } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <hr />
           <footer></footer>
         </article>
-        <Grid container spacing={2}>
+        <Grid container spacing={0}>
           {previous && <Postcard post={previous} />}
           {next && <Postcard post={next} />}
         </Grid>
