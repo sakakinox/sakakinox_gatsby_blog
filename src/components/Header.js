@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@mui/styles"
 import Toolbar from "@mui/material/Toolbar"
 import IconButton from "@mui/material/IconButton"
-import HomeIcon from "@material-ui/icons/Home"
+import HomeIcon from "@mui/icons-material/Home"
 import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link"
 

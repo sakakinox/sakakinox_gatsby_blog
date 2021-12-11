@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./Header"
 import Footer from "./Footer"
 import Sidebar from "./Sidebar"
-import { Container, Grid } from "@mui/material/"
+import { Container, Grid } from "@mui/material"
 
 //import NavicationBar from "../components/nav"
 

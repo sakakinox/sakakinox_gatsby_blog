@@ -34,7 +34,7 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           return (
-            <Grid container spacing={2}>
+            <Grid container spacing={4}>
               <Postcard key={post.fields.slug} post={post} />
             </Grid>
           )
