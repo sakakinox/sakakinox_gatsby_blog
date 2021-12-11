@@ -11,7 +11,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import TwitterIcon from "@material-ui/icons/Twitter"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled"
-import { Grid, IconButton } from "@material-ui/core"
+import { Grid, IconButton } from "@mui/material"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`query BioQuery {
@@ -62,17 +62,17 @@ const Bio = () => {
             <br />
             <IconButton>
               <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-                <TwitterIcon color="primary" />
+                <TwitterIcon />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://github.com/${social?.github || ``}`}>
-                <GitHubIcon color="primary" />
+                <GitHubIcon />
               </Link>
             </IconButton>
             <IconButton>
               <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
-                <PlayCircleFilledIcon color="primary" />
+                <PlayCircleFilledIcon />
               </Link>
             </IconButton>
           </p>
