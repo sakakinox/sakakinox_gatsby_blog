@@ -8,9 +8,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
-import TwitterIcon from "@material-ui/icons/Twitter"
-import GitHubIcon from "@material-ui/icons/GitHub"
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled"
 import { Grid, IconButton } from "@mui/material"
 
 const Bio = () => {
@@ -43,7 +43,7 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.gatsbyImageData
 
   return (
-    <Grid container justify="center" alignItems="center" direction="column">
+    <Grid container direction="column" alignItems="center"  justifyContent="space-around" >
       <Grid item xs={12}>
         {avatar && (
           <GatsbyImage
@@ -59,25 +59,26 @@ const Bio = () => {
           <p>
             Written by <strong>{author.name}</strong> <br />
             {author?.summary || null}
-            <br />
-            <IconButton>
-              <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-                <TwitterIcon />
-              </Link>
-            </IconButton>
-            <IconButton>
-              <Link href={`https://github.com/${social?.github || ``}`}>
-                <GitHubIcon />
-              </Link>
-            </IconButton>
-            <IconButton>
-              <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
-                <PlayCircleFilledIcon />
-              </Link>
-            </IconButton>
           </p>
         )}
       </Grid>
+      <Grid item>
+        <IconButton>
+          <Link href={`https://twitter.com/${social?.twitter || ``}`}>
+            <TwitterIcon />
+          </Link>
+        </IconButton>
+        <IconButton>
+          <Link href={`https://github.com/${social?.github || ``}`}>
+            <GitHubIcon />
+          </Link>
+        </IconButton>
+        <IconButton>
+          <Link href={`https://last.fm/user/${social?.lastfm || ``}`}>
+            <PlayCircleFilledIcon />
+          </Link>
+        </IconButton>
+        </Grid>
     </Grid>
   );
 }
