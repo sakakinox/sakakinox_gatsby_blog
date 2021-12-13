@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@mui/styles"
 import Grid from "@mui/material/Grid"
 import Bio from "./bio"
+import Scroll from "../components/Scroll"
 
 const useStyles = makeStyles(theme => ({
   sidebarAboutBox: {
