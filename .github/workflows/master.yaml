@@ -37,6 +37,10 @@ jobs:
             echo GOOGLE_ANALYTICS_ID=\"${{secrets.GOOGLE_ANALYTICS_ID}}\">>.env.production
             echo GOOGLE_ADSENSE_ID=\"${{secrets.GOOGLE_ADSENSE_ID}}\">>.env.production
 
+        - name: Gen ads.txt
+          run: |
+            echo google.com, ${{secrets.GOOGLE_ADSENSE_ID}}, DIRECT, f08c47fec0942fa0>static/ads.txt
+            
         - name: install
           run: npm ci
 
