@@ -3,6 +3,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import Sidebar from "./Sidebar"
 import { Container, Grid } from "@mui/material"
+import Scroll from "./Scroll"
 
 //import NavicationBar from "../components/nav"
 
@@ -33,6 +34,7 @@ const Layout = ({ location, title, children }) => {
           <Sidebar />
         </Grid>
       </Container>
+      <Scroll showBelow={250} />
       <footer>
         <Footer />
       </footer>
