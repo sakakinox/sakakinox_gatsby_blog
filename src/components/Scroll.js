@@ -34,10 +34,12 @@ const Scroll = ({
     return (
         <Box
             component="span"
-            m={1}
+            zIndex={2}
+            bottom="124.94px"
+            right="6.5%"
             justifyContent='flex-end'
             aliginItems="flex-end"
-            position='relative'
+            position='fixed'
         >
             {show &&
                 <Fab sx='fabStyle' onClick={handleClick} aria-label="to top" component="span">
