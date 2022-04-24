@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import { CssBaseline, Grid, Typography } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Postcard from "../components/postscard"
 
 const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -16,6 +17,9 @@ const Tags = ({ pageContext, data, location }) => {
     <React.Fragment>
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
+      <SEO
+          title={tagHeader}
+        />
         <div>
           <h1>{tagHeader}</h1>
           <ul>
@@ -23,9 +27,7 @@ const Tags = ({ pageContext, data, location }) => {
               const { slug } = node.fields
               const { title } = node.frontmatter
               return (
-                <li key={slug}>
-                  <Link to={slug}>{title}</Link>
-                </li>
+                <Postcard post={node} />
               )
             })}
           </ul>
@@ -75,8 +77,12 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          excerpt(pruneLength: 160)
+          html
           frontmatter {
             title
+            date(formatString: "MMMM DD, YYYY")
+            description
           }
         }
       }

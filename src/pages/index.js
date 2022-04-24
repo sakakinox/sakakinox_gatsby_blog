@@ -35,7 +35,7 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
           return (
             <Grid container spacing={2}>
-              <Postcard key={post.fields.slug} post={post} />
+              <Postcard post={post} />
             </Grid>
           )
         })}
