@@ -10,33 +10,30 @@ const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const tagHeader = `${tag}:(${totalCount})`
   return (
     <React.Fragment>
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
       <SEO
-          title={tagHeader}
+          title={tag}
         />
-        <div>
-          <h1>{tagHeader}</h1>
-          <ul>
-            {edges.map(({ node }) => {
-              const { slug } = node.fields
-              const { title } = node.frontmatter
-              return (
-                <Postcard post={node} />
-              )
-            })}
-          </ul>
-          {/*
-                  This links to a page that does not yet exist.
-                  You'll come back to it!
-                */}
-          <Link to="/tags">All tags</Link>
-        </div>
+      <header>
+        <Typography variant="h5"  component="div" itemProp="headline">{tagHeader}</Typography>
+      </header>
+      <hr />
+      <ul>
+        {edges.map(({ node }) => {
+          return (
+            <Postcard post={node} />
+          )
+        })}
+      </ul>
+      {/*
+              This links to a page that does not yet exist.
+              You'll come back to it!
+            */}
+      <Link to="/tags">All tags</Link>
       </Layout>
     </React.Fragment>
   )
