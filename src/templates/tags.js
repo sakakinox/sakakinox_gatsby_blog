@@ -1,33 +1,42 @@
 import React from "react"
 import PropTypes from "prop-types"
-// Components
 import { Link, graphql } from "gatsby"
-const Tags = ({ pageContext, data }) => {
+import { CssBaseline, Grid, Typography } from "@mui/material"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+const Tags = ({ pageContext, data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-      <Link to="/tags">All tags</Link>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Layout location={location} title={siteTitle}>
+        <div>
+          <h1>{tagHeader}</h1>
+          <ul>
+            {edges.map(({ node }) => {
+              const { slug } = node.fields
+              const { title } = node.frontmatter
+              return (
+                <li key={slug}>
+                  <Link to={slug}>{title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+          {/*
+                  This links to a page that does not yet exist.
+                  You'll come back to it!
+                */}
+          <Link to="/tags">All tags</Link>
+        </div>
+      </Layout>
+    </React.Fragment>
   )
 }
 Tags.propTypes = {
@@ -70,6 +79,11 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+    }
+    site{
+      siteMetadata{
+        title
       }
     }
   }
