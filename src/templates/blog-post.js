@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql,Link } from "gatsby"
-import { CssBaseline, Grid, Typography } from "@mui/material"
+import { CssBaseline, Grid, Typography, Chip, Stack, } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
@@ -27,9 +27,20 @@ const BlogPostTemplate = ({ data, location }) => {
           <header>
             <Typography variant="h5"  component="div" itemProp="headline">{post.frontmatter.title}</Typography>
             <Typography variant="subtitle1" component="div" color="textSecondary"> {post.frontmatter.date} </Typography>
+            <Stack
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  spacing={1}
+            >
             {post.frontmatter.tags.map(tag => {
-              return <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>
+              return(
+                  <Link to={`/tags/${_.kebabCase(tag)}/`}>
+                    <Chip label={tag} />
+                  </Link>
+              )
             })}
+            </Stack>
           </header>
           
           <hr />
