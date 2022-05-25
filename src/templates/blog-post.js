@@ -33,7 +33,7 @@ const BlogPostTemplate = ({ data, location }) => {
                   alignItems="center"
                   spacing={1}
             >
-            {post.frontmatter.tags.map(tag => {
+            {post.frontmatter.tags?.map(tag => {
               return(
                   <Link to={`/tags/${_.kebabCase(tag)}/`}>
                     <Chip label={tag} />
