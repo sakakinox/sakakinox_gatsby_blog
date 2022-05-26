@@ -90,6 +90,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/favicon.png`,
+        output: "/rss.xml",
       },
     },
     `gatsby-plugin-react-helmet`,
