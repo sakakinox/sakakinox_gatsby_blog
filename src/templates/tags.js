@@ -16,10 +16,10 @@ const Tags = ({ pageContext, data, location }) => {
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
       <SEO
-          title={tag}
+          title={`#` + tag}
         />
       <header>
-        <Typography variant="h5"  component="div" itemProp="headline">{tagHeader}</Typography>
+        <Typography variant="h5"  component="div" itemProp="headline">{`#` + tagHeader}</Typography>
       </header>
       <hr />
       <ul>

@@ -35,7 +35,7 @@ const BlogPostTemplate = ({ data, location }) => {
             >
             {post.frontmatter.tags?.map(tag => {
               return(
-                <Chip label={tag}
+                <Chip label={`#` + tag}
                       component="a"
                       href={`/tags/${_.kebabCase(tag)}/`}
                       style={{textDecoration: 'none'}}
