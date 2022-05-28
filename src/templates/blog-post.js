@@ -1,6 +1,6 @@
 import React from "react"
-import { graphql,Link } from "gatsby"
-import { CssBaseline, Grid, Typography, Chip, Stack, } from "@mui/material"
+import { graphql } from "gatsby"
+import { CssBaseline, Grid, Typography, Chip, Stack, Link } from "@mui/material"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Postcard from "../components/postscard"
@@ -35,9 +35,12 @@ const BlogPostTemplate = ({ data, location }) => {
             >
             {post.frontmatter.tags?.map(tag => {
               return(
-                  <Link to={`/tags/${_.kebabCase(tag)}/`}>
-                    <Chip label={tag} />
-                  </Link>
+                <Chip label={tag}
+                      component="a"
+                      href={`/tags/${_.kebabCase(tag)}/`}
+                      style={{textDecoration: 'none'}}
+                      clickable 
+                />
               )
             })}
             </Stack>
