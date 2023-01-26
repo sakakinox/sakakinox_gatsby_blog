@@ -31,8 +31,8 @@ const Scroll = ({
         <Box
             component="span"
             zIndex={2}
-            bottom="124.94px"
-            right="6.5%"
+            bottom="6%"
+            right="4%"
             justifyContent='flex-end'
             aliginItems="flex-end"
             position='fixed'
