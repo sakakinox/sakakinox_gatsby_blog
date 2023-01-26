@@ -12,6 +12,7 @@ function Copyright() {
       <Link color="inherit" href="/">
         sakakinox.net
       </Link>{" "}
+      {"2021-"}
       {new Date().getFullYear()}
       {"."}
     </Typography>
