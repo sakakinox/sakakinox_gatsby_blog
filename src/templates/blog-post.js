@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CssBaseline, Grid, Typography, Chip, Stack, Link } from "@mui/material"
+import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Postcard from "../components/postscard"
 import _ from "lodash"
 
@@ -15,7 +15,7 @@ const BlogPostTemplate = ({ data, location }) => {
     <React.Fragment>
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
-        <SEO
+        <Seo
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />

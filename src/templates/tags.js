@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
-import { CssBaseline, Grid, Typography } from "@mui/material"
+import { CssBaseline, Typography } from "@mui/material"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Postcard from "../components/postscard"
 
 const Tags = ({ pageContext, data, location }) => {
@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data, location }) => {
     <React.Fragment>
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
-      <SEO
+      <Seo
           title={`#` + tag}
         />
       <header>
