@@ -1,29 +1,40 @@
 import React from "react"
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types"
-import { makeStyles } from "@mui/styles"
 import Grid from "@mui/material/Grid"
 import Bio from "./bio"
-import Scroll from "../components/Scroll"
 
-const useStyles = makeStyles(theme => ({
-  sidebarAboutBox: {
+const PREFIX = 'Sidebar';
+
+const classes = {
+  sidebarAboutBox: `${PREFIX}-sidebarAboutBox`,
+  sidebarSection: `${PREFIX}-sidebarSection`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.sidebarAboutBox}`]: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200],
   },
-  sidebarSection: {
+
+  [`& .${classes.sidebarSection}`]: {
     marginTop: theme.spacing(3),
-  },
-}))
+  }
+}));
 
 export default function Sidebar(props) {
-  const classes = useStyles()
+
   const { archives, description, social, title } = props
 
   return (
-    <Grid item xs={12} md={3}>
+    <StyledGrid item xs={12} md={3}>
       <Bio />
-    </Grid>
-  )
+    </StyledGrid>
+  );
 }
 
 Sidebar.propTypes = {
