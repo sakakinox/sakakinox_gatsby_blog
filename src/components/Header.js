@@ -1,35 +1,52 @@
 import React from "react"
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types"
-import { makeStyles } from "@mui/styles"
 import Toolbar from "@mui/material/Toolbar"
 import IconButton from "@mui/material/IconButton"
 import HomeIcon from "@mui/icons-material/Home"
 import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link"
 
-const useStyles = makeStyles(theme => ({
-  toolbar: {
+const PREFIX = 'Header';
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  toolbarTitle: `${PREFIX}-toolbarTitle`,
+  toolbarSecondary: `${PREFIX}-toolbarSecondary`,
+  toolbarLink: `${PREFIX}-toolbarLink`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.toolbar}`]: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  toolbarTitle: {
+
+  [`& .${classes.toolbarTitle}`]: {
     flex: 1,
   },
-  toolbarSecondary: {
+
+  [`& .${classes.toolbarSecondary}`]: {
     justifyContent: "space-between",
     overflowX: "auto",
   },
-  toolbarLink: {
+
+  [`& .${classes.toolbarLink}`]: {
     padding: theme.spacing(1),
     flexShrink: 0,
-  },
-}))
+  }
+}));
 
 export default function Header(props) {
-  const classes = useStyles()
+
   const { sections, title } = props
 
   return (
-    <React.Fragment>
+    <Root>
       <Toolbar className={classes.toolbar}>
         <IconButton>
           <Link href="/">
@@ -66,8 +83,8 @@ export default function Header(props) {
           </Link>
         ))}
       </Toolbar>
-    </React.Fragment>
-  )
+    </Root>
+  );
 }
 
 Header.propTypes = {
