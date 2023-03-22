@@ -151,6 +151,21 @@ module.exports = {
         icon: `content/assets/favicon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-newrelic',
+      options: {
+        config: {
+            instrumentationType: 'proAndSPA',
+            accountId: `${process.env.NR_ACC_ID}`,
+            trustKey: `${process.env.NR_TRUST_KEY}`,
+            agentID: `${process.env.NR_AGENT_ID}`,
+            licenseKey: `${process.env.NR_LICENSE_KEY}`,
+            applicationID:`${process.env.NR_APP_ID}`,
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+        }
+      }
+     },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
