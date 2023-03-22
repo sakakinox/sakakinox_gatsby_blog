@@ -36,6 +36,11 @@ jobs:
             echo ENV_NAME=\"\">>.env.production
             echo GOOGLE_ANALYTICS_ID=\"${{secrets.GOOGLE_ANALYTICS_ID}}\">>.env.production
             echo GOOGLE_ADSENSE_ID=\"${{secrets.GOOGLE_ADSENSE_ID}}\">>.env.production
+            echo NR_ACC_ID=\"${{secrets.NR_ACC_ID}}\">>.env.production
+            echo NR_TRUST_KEY=\"${{secrets.NR_TRUST_KEY}}\">>.env.production
+            echo NR_AGENT_ID=\"${{secrets. NR_AGENT_ID}}\">>.env.production
+            echo NR_LICENSE_KEY=\"${{secrets.NR_LICENSE_KEY}}\">>.env.production
+            echo NR_APP_ID=\"${{secrets.NR_APP_ID}}\">>.env.production
 
         - name: Gen ads.txt
           run: |
