@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { graphql } from "gatsby"
 import { TextField, Button, Typography } from '@mui/material';
+import Layout from "../../components/layout"
+
 
 function Roulette() {
   const [items, setItems] = useState([]);
@@ -36,8 +39,9 @@ function Roulette() {
   };
 
   return (
-    <>
-      {items.length === 0 && <Typography>Please input some items to spin!</Typography>}
+    <Layout location={"/app/roulette"} title="sakakinox.net">
+      <Typography variant='h4'>Roulette App</Typography>
+      {selectedItem === null && <Typography>Please input some items to spin!</Typography>}
       {selectedItem && (
         <Typography variant="h4" style={{ color: isSpinning ? 'black' : 'red' }}>
           {selectedItem}
@@ -64,8 +68,18 @@ function Roulette() {
         value={inputItems}
         onChange={handleInputChange}
       />
-    </>
+    </Layout>
   );
 }
 
 export default Roulette;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+  `
