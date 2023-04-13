@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Toolbar from "@mui/material/Toolbar"
 import IconButton from "@mui/material/IconButton"
 import HomeIcon from "@mui/icons-material/Home"
+import AppsIcon from "@mui/icons-material/Apps"
 import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link"
 
@@ -13,10 +14,10 @@ const classes = {
   toolbar: `${PREFIX}-toolbar`,
   toolbarTitle: `${PREFIX}-toolbarTitle`,
   toolbarSecondary: `${PREFIX}-toolbarSecondary`,
-  toolbarLink: `${PREFIX}-toolbarLink`
+  toolbarLink: `${PREFIX}-toolbarLink`,
+  linkButton: `${PREFIX}-linkButton`
 };
 
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')((
   {
     theme
@@ -38,6 +39,11 @@ const Root = styled('div')((
   [`& .${classes.toolbarLink}`]: {
     padding: theme.spacing(1),
     flexShrink: 0,
+  },
+
+  [`& .${classes.linkButton}`]: {
+    display: 'flex',
+    alignItems: 'center',
   }
 }));
 
@@ -51,6 +57,11 @@ export default function Header(props) {
         <IconButton>
           <Link href="/">
             <HomeIcon />
+          </Link>
+        </IconButton>
+        <IconButton>
+          <Link href="/app">
+          <AppsIcon />
           </Link>
         </IconButton>
         <Typography
