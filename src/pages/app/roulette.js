@@ -18,6 +18,14 @@ function Roulette() {
     }
   }, []);
 
+  const saveItemsToCookie = () => {
+    const now = new Date();
+    now.setMonth(now.getMonth() + 1);
+    localStorage.setItem('rouletteItems', items.join(','), {
+      expires: now.toUTCString(),
+    });
+  };
+
   const handleSpin = () => {
     if (items.length > 0) {
       setIsSpinning(true);
@@ -32,16 +40,14 @@ function Roulette() {
         setIsSpinning(false);
       }, 2000);
     }
-    // itemsをクッキーに保存
-    localStorage.setItem('rouletteItems', items.join(','));
+    saveItemsToCookie();
   };
 
   const handleShuffle = () => {
     setItems((prevItems) => prevItems.sort(() => Math.random() - 0.5));
     setSelectedItem(null);
     setInputItems(items.join('\n'));
-    // itemsをクッキーに保存
-    localStorage.setItem('rouletteItems', items.join(','));
+    saveItemsToCookie();
   };
 
   const handleInputChange = (event) => {
