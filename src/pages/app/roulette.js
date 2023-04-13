@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from "gatsby";
-import { TextField, Button, Typography, Grid } from '@mui/material';
+import { TextField, Button, Typography, Grid, CssBaseline } from '@mui/material';
 import Layout from "../../components/layout";
 
 
-function Roulette() {
+function Roulette({data}) {
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [inputItems, setInputItems] = useState('');
   const [isSpinning, setIsSpinning] = useState(false);
+  const { title } = data.site.siteMetadata;
 
   useEffect(() => {
     const storedItems = localStorage.getItem('rouletteItems');
@@ -57,42 +58,45 @@ function Roulette() {
   };
 
   return (
-    <Layout location={"/app/roulette"} title="sakakinox.net">
-      <Typography variant='h4'>Roulette App</Typography>
-      <br />
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
-          <Button variant="contained" onClick={handleShuffle}>
-            Shuffle
-          </Button>
-          <br />
-          <br />
-          <div style={{ display: 'inline-block' }}>
-            <Button variant="contained" color="primary" onClick={handleSpin} disabled={items.length === 0 || isSpinning}>
-              Spin
+    <React.Fragment>
+      <CssBaseline />
+      <Layout location={"/app/roulette"} title={title}>
+        <Typography variant='h4'>Roulette App</Typography>
+        <br />
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <Button variant="contained" onClick={handleShuffle}>
+              Shuffle
             </Button>
-          </div>
-          <br />
-          <br />
-          <TextField
-            label="Input items (separate by line)"
-            multiline
-            minRows={10}
-            maxRows={50}
-            value={inputItems}
-            onChange={handleInputChange}
-          />
+            <br />
+            <br />
+            <div style={{ display: 'inline-block' }}>
+              <Button variant="contained" color="primary" onClick={handleSpin} disabled={items.length === 0 || isSpinning}>
+                Spin
+              </Button>
+            </div>
+            <br />
+            <br />
+            <TextField
+              label="Input items (separate by line)"
+              multiline
+              minRows={10}
+              maxRows={50}
+              value={inputItems}
+              onChange={handleInputChange}
+            />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            {selectedItem === null && <Typography variant="h4">Please input some items to spin!</Typography>}
+            {selectedItem && (
+              <Typography variant="h4" style={{ color: isSpinning ? 'black' : 'red' }}>
+                {selectedItem}
+              </Typography>
+            )}
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={8}>
-          {selectedItem === null && <Typography variant="h4">Please input some items to spin!</Typography>}
-          {selectedItem && (
-            <Typography variant="h4" style={{ color: isSpinning ? 'black' : 'red' }}>
-              {selectedItem}
-            </Typography>
-          )}
-        </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </React.Fragment>
   );
 }
 
