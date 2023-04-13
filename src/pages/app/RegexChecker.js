@@ -1,64 +1,67 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import TextField from "@mui/material/TextField"
-import Typography from "@mui/material/Typography"
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
-const RegexChecker = ({ regex = /(?:)/ }) => {
-  const [input, setInput] = useState("")
-  const [matchResult, setMatchResult] = useState([])
-  const [matchResultText, setMatchResultText] = useState("")
+const RegexChecker = ({ initialRegex = /(?:)/ }) => {
+  const [input, setInput] = useState("");
+  const [matchResult, setMatchResult] = useState([]);
+  const [regex, setRegex] = useState(initialRegex);
 
-  const handleChange = e => {
-    const { value } = e.target
-    setInput(value)
-    const newMatchResult = getMatchResult(value, regex)
-    setMatchResult(newMatchResult)
-    const newMatchResultText = newMatchResult
-      .map(match => (match.isMatch ? match.text : ""))
-      .join("")
-    setMatchResultText(newMatchResultText)
-  }
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setInput(value);
+    const newMatchResult = getMatchResult(value, regex);
+    setMatchResult(newMatchResult);
+  };
 
-  const handleRegexChange = e => {
-    const { value } = e.target
+  const handleRegexChange = (e) => {
+    const { value } = e.target;
     try {
-      const newRegex = new RegExp(value)
-      regex = newRegex
-      const newMatchResult = getMatchResult(input, regex)
-      setMatchResult(newMatchResult)
-      const newMatchResultText = newMatchResult
-        .map(match => (match.isMatch ? match.text : ""))
-        .join("")
-      setMatchResultText(newMatchResultText)
+      const newRegex = new RegExp(value, "g");
+      setRegex(newRegex);
+      const newMatchResult = getMatchResult(input, newRegex);
+      setMatchResult(newMatchResult);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const getMatchResult = (text, regex) => {
-    const matchResult = []
-    let lastIndex = 0
-    const matches = text.matchAll(regex)
-    for (const match of matches) {
-      const matchedText = match[0]
-      const index = match.index
+    const matchResult = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(text)) !== null) {
+      const matchedText = match[0];
+      const index = match.index;
+
+      if (matchedText.length === 0) {
+        regex.lastIndex += 1;
+        if (regex.lastIndex > text.length) {
+          break;
+        }
+      }
+
       if (index > lastIndex) {
         matchResult.push({
           text: text.substring(lastIndex, index),
           isMatch: false,
-        })
+        });
       }
-      matchResult.push({ text: matchedText, isMatch: true })
-      lastIndex = index + matchedText.length
+      matchResult.push({ text: matchedText, isMatch: true });
+      lastIndex = index + matchedText.length;
     }
+
     if (lastIndex < text.length) {
       matchResult.push({
         text: text.substring(lastIndex),
         isMatch: false,
-      })
+      });
     }
-    return matchResult
-  }
+
+    return matchResult;
+  };
 
   return (
     <div>
@@ -75,6 +78,8 @@ const RegexChecker = ({ regex = /(?:)/ }) => {
         variant="outlined"
         fullWidth
         margin="normal"
+        multiline
+        rows={4}
         value={input}
         onChange={handleChange}
       />
@@ -85,23 +90,12 @@ const RegexChecker = ({ regex = /(?:)/ }) => {
           </span>
         ))}
       </Typography>
-      <div>
-        <Typography variant="h6" component="div" gutterBottom>
-          マッチ結果
-        </Typography>
-        <textarea
-          readOnly
-          rows={4}
-          value={matchResultText}
-          style={{ width: "100%" }}
-        />
-      </div>
     </div>
-  )
-}
+  );
+};
 
 RegexChecker.propTypes = {
-  regex: PropTypes.instanceOf(RegExp),
-}
+  initialRegex: PropTypes.instanceOf(RegExp),
+};
 
-export default RegexChecker
+export default RegexChecker;
