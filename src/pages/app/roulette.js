@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
-import { graphql } from "gatsby"
+import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
 import { TextField, Button, Typography } from '@mui/material';
-import Layout from "../../components/layout"
-
+import Layout from '../../components/layout';
 
 function Roulette() {
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [inputItems, setInputItems] = useState('');
   const [isSpinning, setIsSpinning] = useState(false);
+
+  // 保存したitemsがある場合は読み込む
+  useEffect(() => {
+    const savedItems = localStorage.getItem('rouletteItems');
+    if (savedItems) {
+      setItems(savedItems.split(','));
+      setInputItems(savedItems);
+    }
+  }, []);
 
   const handleSpin = () => {
     if (items.length > 0) {
@@ -30,6 +38,8 @@ function Roulette() {
     setItems((prevItems) => prevItems.sort(() => Math.random() - 0.5));
     setSelectedItem(null);
     setInputItems(items.join('\n'));
+    // itemsをクッキーに保存
+    localStorage.setItem('rouletteItems', items.join(','));
   };
 
   const handleInputChange = (event) => {
@@ -39,8 +49,8 @@ function Roulette() {
   };
 
   return (
-    <Layout location={"/app/roulette"} title="sakakinox.net">
-      <Typography variant='h4'>Roulette App</Typography>
+    <Layout location={'/app/roulette'} title="sakakinox.net">
+      <Typography variant="h4">Roulette App</Typography>
       {selectedItem === null && <Typography>Please input some items to spin!</Typography>}
       {selectedItem && (
         <Typography variant="h4" style={{ color: isSpinning ? 'black' : 'red' }}>
@@ -82,4 +92,4 @@ export const pageQuery = graphql`
       }
     }
   }
-  `
+`;
