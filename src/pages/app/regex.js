@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Layout from "../../components/layout";
 
 const RegexChecker = ({ initialRegex = "" }) => {
   const [input, setInput] = useState("");
@@ -18,7 +19,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
   const handleRegexChange = (e) => {
     const { value } = e.target;
     try {
-      const newRegex = new RegExp(value, "g");
+      const newRegex = new RegExp(value, "gm");
       setRegex(newRegex);
       const newMatchResult = getMatchResult(input, newRegex);
       setMatchResult(newMatchResult);
@@ -69,7 +70,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
   };
 
   return (
-    <div>
+    <Layout location={"/app/regex"} title={"hoge"}>
       <TextField
         label="正規表現"
         variant="outlined"
@@ -102,12 +103,12 @@ const RegexChecker = ({ initialRegex = "" }) => {
           ))}
         </pre>
       </Typography>
-    </div>
+    </Layout>
   );
 };
 
 RegexChecker.propTypes = {
-  initialRegex: PropTypes.instanceOf(RegExp),
+  initialRegex: PropTypes.string,
 };
 
 export default RegexChecker;
