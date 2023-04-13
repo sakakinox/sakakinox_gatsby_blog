@@ -28,37 +28,42 @@ const RegexChecker = ({ initialRegex = /(?:)/ }) => {
   };
 
   const getMatchResult = (text, regex) => {
-    const matchResult = [];
-    let lastIndex = 0;
-    let match;
+    const lines = text.split('\n');
+    const matchResult = lines.map(line => {
+      const lineMatchResult = [];
+      let lastIndex = 0;
+      let match;
 
-    while ((match = regex.exec(text)) !== null) {
-      const matchedText = match[0];
-      const index = match.index;
+      while ((match = regex.exec(line)) !== null) {
+        const matchedText = match[0];
+        const index = match.index;
 
-      if (matchedText.length === 0) {
-        regex.lastIndex += 1;
-        if (regex.lastIndex > text.length) {
-          break;
+        if (matchedText.length === 0) {
+          regex.lastIndex += 1;
+          if (regex.lastIndex > line.length) {
+            break;
+          }
         }
+
+        if (index > lastIndex) {
+          lineMatchResult.push({
+            text: line.substring(lastIndex, index),
+            isMatch: false,
+          });
+        }
+        lineMatchResult.push({ text: matchedText, isMatch: true });
+        lastIndex = index + matchedText.length;
       }
 
-      if (index > lastIndex) {
-        matchResult.push({
-          text: text.substring(lastIndex, index),
+      if (lastIndex < line.length) {
+        lineMatchResult.push({
+          text: line.substring(lastIndex),
           isMatch: false,
         });
       }
-      matchResult.push({ text: matchedText, isMatch: true });
-      lastIndex = index + matchedText.length;
-    }
 
-    if (lastIndex < text.length) {
-      matchResult.push({
-        text: text.substring(lastIndex),
-        isMatch: false,
-      });
-    }
+      return lineMatchResult;
+    });
 
     return matchResult;
   };
@@ -84,11 +89,18 @@ const RegexChecker = ({ initialRegex = /(?:)/ }) => {
         onChange={handleChange}
       />
       <Typography variant="h6" component="div">
-        {matchResult.map((match, index) => (
-          <span key={index} style={{ color: match.isMatch ? "red" : "black" }}>
-            {match.text}
-          </span>
-        ))}
+        <pre>
+          {matchResult.map((lineMatches, lineIndex) => (
+            <React.Fragment key={lineIndex}>
+              {lineMatches.map((match, index) => (
+                <span key={index} style={{ backgroundColor: match.isMatch ? "rgba(135,206,250, 0.3)" : "transparent" }}>
+                  {match.text}
+                </span>
+              ))}
+              {lineIndex < matchResult.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </pre>
       </Typography>
     </div>
   );
