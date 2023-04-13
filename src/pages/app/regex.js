@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-const RegexChecker = ({ initialRegex = /(?:)/ }) => {
+const RegexChecker = ({ initialRegex = "" }) => {
   const [input, setInput] = useState("");
   const [matchResult, setMatchResult] = useState([]);
   const [regex, setRegex] = useState(initialRegex);
