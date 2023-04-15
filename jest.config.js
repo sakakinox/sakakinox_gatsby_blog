@@ -15,9 +15,6 @@ module.exports = {
     testEnvironmentOptions: {
         url: 'http://localhost',
       },
-    plugins: [
-        'gatsby',
-        `gatsby-plugin-testing`
-    ],
+    testEnvironment: 'jsdom',
   };
   
