@@ -42,7 +42,6 @@ const RegexChecker = ({ initialRegex = "" }) => {
       while ((match = regex.exec(line)) !== null) {
         const matchedText = match[0]
         const index = match.index
-
         if (matchedText.length === 0) {
           regex.lastIndex += 1
           if (regex.lastIndex > line.length) {

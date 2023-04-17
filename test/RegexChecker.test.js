@@ -166,6 +166,7 @@ describe("getMatchResult", () => {
     const result = getMatchResult(input, regex)
     expect(result).toEqual(expectedResult)
   })
+
   it("11. should match a character in a character set using square brackets ([])", () => {
     const regex = /[aeiou]/gm
     const input = "Hello, world!"
@@ -173,12 +174,14 @@ describe("getMatchResult", () => {
       [
         { text: "H", isMatch: false },
         { text: "e", isMatch: true },
-        { text: "llo, ", isMatch: false },
+        { text: "ll", isMatch: false },
+        { text: "o", isMatch: true },
+        { text: ", w", isMatch: false },
         { text: "o", isMatch: true },
         { text: "rld!", isMatch: false },
       ],
     ]
-
+  
     const result = getMatchResult(input, regex)
     expect(result).toEqual(expectedResult)
   })
@@ -256,17 +259,17 @@ describe("getMatchResult", () => {
     const regex = /ca*t/gm
     const input = "ct cat caat caaat"
     const expectedResult = [
-      [
-        { text: "", isMatch: false },
-        { text: "ct", isMatch: true },
-        { text: " ", isMatch: false },
-        { text: "cat", isMatch: true },
-        { text: " ", isMatch: false },
-        { text: "caat", isMatch: true },
-        { text: " ", isMatch: false },
-        { text: "caaat", isMatch: true },
-      ],
-    ]
+        [
+          { text: "ct", isMatch: true },
+          { text: " ", isMatch: false },
+          { text: "cat", isMatch: true },
+          { text: " ", isMatch: false },
+          { text: "caat", isMatch: true },
+          { text: " ", isMatch: false },
+          { text: "caaat", isMatch: true },
+        ],
+      ]
+      
 
     const result = getMatchResult(input, regex)
     expect(result).toEqual(expectedResult)
@@ -295,7 +298,6 @@ describe("getMatchResult", () => {
     const input = "cat concatenate"
     const expectedResult = [
       [
-        { text: "", isMatch: false },
         { text: "cat", isMatch: true },
         { text: " concatenate", isMatch: false },
       ],
@@ -304,16 +306,16 @@ describe("getMatchResult", () => {
     const result = getMatchResult(input, regex)
     expect(result).toEqual(expectedResult)
   })
+  
   it("19. should match non-word boundaries (\\B)", () => {
     const regex = /ar\B/gm
-    const input = "arbitrary array"
+    const input = "arbitrary ar!ray"
     const expectedResult = [
       [
-        { text: "a", isMatch: false },
-        { text: "r", isMatch: true },
-        { text: "bitrary ", isMatch: false },
-        { text: "ar", isMatch: false },
-        { text: "ray", isMatch: false },
+        { text: "ar", isMatch: true },
+        { text: "bitr", isMatch: false },
+        { text: "ar", isMatch: true },
+        { text: "y ar!ray", isMatch: false },
       ],
     ]
 
@@ -336,3 +338,20 @@ describe("getMatchResult", () => {
     expect(result).toEqual(expectedResult)
   })
 })
+
+it("21. should match either one pattern or another using the OR condition (|)", () => {
+    const regex = /dog|cat/gm
+    const input = "I have a dog, a cat, and a parrot."
+    const expectedResult = [
+      [
+        { text: "I have a ", isMatch: false },
+        { text: "dog", isMatch: true },
+        { text: ", a ", isMatch: false },
+        { text: "cat", isMatch: true },
+        { text: ", and a parrot.", isMatch: false },
+      ],
+    ]
+  
+    const result = getMatchResult(input, regex)
+    expect(result).toEqual(expectedResult)
+  })
