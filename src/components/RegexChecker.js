@@ -123,6 +123,50 @@ const RegexChecker = ({ initialRegex = "" }) => {
   )
 }
 
+export const getMatchResult = (text, regex) => {
+  if (!text) {
+    return []
+  }
+  const lines = text.split("\n")
+  const matchResult = lines.map(line => {
+    const lineMatchResult = []
+    let lastIndex = 0
+    let match
+
+    while ((match = regex.exec(line)) !== null) {
+      const matchedText = match[0]
+      const index = match.index
+
+      if (matchedText.length === 0) {
+        regex.lastIndex += 1
+        if (regex.lastIndex > line.length) {
+          break
+        }
+      }
+
+      if (index > lastIndex) {
+        lineMatchResult.push({
+          text: line.substring(lastIndex, index),
+          isMatch: false,
+        })
+      }
+      lineMatchResult.push({ text: matchedText, isMatch: true })
+      lastIndex = index + matchedText.length
+    }
+
+    if (lastIndex < line.length) {
+      lineMatchResult.push({
+        text: line.substring(lastIndex),
+        isMatch: false,
+      })
+    }
+
+    return lineMatchResult
+  })
+
+  return matchResult
+}
+
 RegexChecker.propTypes = {
   initialRegex: PropTypes.string,
 }
