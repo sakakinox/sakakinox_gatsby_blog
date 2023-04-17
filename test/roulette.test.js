@@ -46,19 +46,19 @@ Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
 })
 
-test("Roulette component renders correctly", () => {
+test("1. Roulette component renders correctly", () => {
   render(<Roulette data={data} />)
   expect(screen.getByText("Roulette App")).toBeInTheDocument()
 })
 
-test("handles input change and sets the new value", () => {
+test("2. handles input change and sets the new value", () => {
   render(<Roulette data={data} />)
   const input = screen.getByLabelText("Input items (separate by line)")
   fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3" } })
   expect(input.value).toBe("Item1\nItem2\nItem3")
 })
 
-test("spins and displays a random item", async () => {
+test("3. spins and displays a random item", async () => {
   render(<Roulette data={data} />)
   const input = screen.getByLabelText("Input items (separate by line)")
   fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3" } })
@@ -71,7 +71,7 @@ test("spins and displays a random item", async () => {
   })
 })
 
-test("shuffle changes the order of items", () => {
+test("4. shuffle changes the order of items", () => {
   const data = {
     site: {
       siteMetadata: {
@@ -96,7 +96,7 @@ test("shuffle changes the order of items", () => {
 // ...
 
 // スピンを押すとスピンが開始されること
-test("spin button starts the spin", async () => {
+test("5. spin button starts the spin", async () => {
   render(<Roulette data={data} />)
   const input = screen.getByLabelText("Input items (separate by line)")
   fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3" } })
@@ -109,7 +109,7 @@ test("spin button starts the spin", async () => {
 })
 
 // リストに2バイト文字が入ってもエラーが発生しないこと
-test("2-byte characters in the list do not cause errors", () => {
+test("6. 2-byte characters in the list do not cause errors", () => {
   render(<Roulette data={data} />)
   const input = screen.getByLabelText("Input items (separate by line)")
   fireEvent.change(input, {
@@ -119,7 +119,7 @@ test("2-byte characters in the list do not cause errors", () => {
 })
 
 // それぞれのボタンを押したときにリストの内容がlocalStorageに保存されること
-test("list data is saved to localStorage when buttons are clicked", () => {
+test("7. list data is saved to localStorage when buttons are clicked", () => {
   render(<Roulette />)
   fireEvent.change(screen.getByLabelText("Input items (separate by line)"), {
     target: { value: "Item1\nItem2\nItem3" },
@@ -134,7 +134,7 @@ test("list data is saved to localStorage when buttons are clicked", () => {
 })
 
 // localStorageにデータがある場合、リストの情報を読み込めること
-test("loads list data from localStorage if available", () => {
+test("8. loads list data from localStorage if available", () => {
   localStorage.setItem("roulette_list", "Item1\nItem2\nItem3")
   render(<Roulette data={data} />)
   const input = screen.getByLabelText("Input items (separate by line)")
