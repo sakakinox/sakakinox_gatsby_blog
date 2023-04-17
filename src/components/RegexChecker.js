@@ -30,6 +30,9 @@ const RegexChecker = ({ initialRegex = "" }) => {
   }
 
   const getMatchResult = (text, regex) => {
+    if (!text || !regex || !regex.source) {
+      return text ? [[{ text, isMatch: false }]] : [];
+    }
     const lines = text.split("\n")
     const matchResult = lines.map(line => {
       const lineMatchResult = []
