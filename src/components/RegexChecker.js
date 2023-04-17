@@ -31,7 +31,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
 
   const getMatchResult = (text, regex) => {
     if (!text || !regex || !regex.source) {
-      return text ? [[{ text, isMatch: false }]] : [];
+      return text ? [[{ text, isMatch: false }]] : []
     }
     const lines = text.split("\n")
     const matchResult = lines.map(line => {
@@ -100,7 +100,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Card sx={{overflow: "scroll"}} variant="outlined">
+          <Card sx={{ overflow: "scroll" }} variant="outlined">
             <CardContent>
               <Typography component="div">
                 <pre>
