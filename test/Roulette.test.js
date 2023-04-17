@@ -72,26 +72,32 @@ test("3. spins and displays a random item", async () => {
 })
 
 test("4. shuffle changes the order of items", () => {
-  const data = {
-    site: {
-      siteMetadata: {
-        title: "Test Title",
-      },
-    },
-  }
-  render(<Roulette data={data} />)
-  const input = screen.getByLabelText("Input items (separate by line)")
-  fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3\nItem4" } })
-  const shuffleButton = screen.getByText("Shuffle")
+  render(<Roulette />);
+  const input = screen.getByLabelText("Input items (separate by line)");
+  fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3\nItem4" } });
+  const shuffleButton = screen.getByText("Shuffle");
+
+  const initialListOrder = input.value;
+  let prevListOrder = initialListOrder;
+  let isOrderChanged = false;
 
   // シャッフルボタンを5回クリックして、ランダムに並び替える
   for (let i = 0; i < 5; i++) {
-    fireEvent.click(shuffleButton)
+    fireEvent.click(shuffleButton);
+    const currentListOrder = input.value;
+
+    if (currentListOrder !== prevListOrder) {
+      isOrderChanged = true;
+      break;
+    }
+
+    prevListOrder = currentListOrder;
   }
 
   // 元の順序と異なる順序が表示されることを確認
-  expect(input.value).not.toBe("Item1\nItem2\nItem3\nItem4")
-})
+  expect(isOrderChanged).toBe(true);
+});
+
 
 // ...
 
