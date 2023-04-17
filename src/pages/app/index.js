@@ -18,6 +18,11 @@ const IndexPage = ({ data }) => {
       <Link to="/app/roulette">
         <Button variant="contained">Go to Roulette</Button>
       </Link>
+      <br />
+      <br />
+      <Link to="/app/regex">
+        <Button variant="contained">Go to RegexChecker</Button>
+      </Link>
     </Layout>
   )
 }
