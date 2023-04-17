@@ -50,10 +50,12 @@
     "typography": "^0.16.21"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "gatsby-plugin-testing": "^0.3.5",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
+    "jest-jasmine2": "^29.5.0",
     "jest-preset-gatsby": "^1.0.134",
     "prettier": "2.8.4"
   },
@@ -74,6 +76,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   }
 }
