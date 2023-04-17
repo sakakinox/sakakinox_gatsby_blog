@@ -25,29 +25,43 @@ const BlogPostTemplate = ({ data, location }) => {
           itemType="http://schema.org/Article"
         >
           <header>
-            <Typography variant="h5"  component="div" itemProp="headline">{post.frontmatter.title}</Typography>
-            <Typography variant="subtitle1" component="div" color="textSecondary"> {post.frontmatter.date} </Typography>
-            <Stack
-                  direction="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  spacing={1}
+            <Typography variant="h5" component="div" itemProp="headline">
+              {post.frontmatter.title}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              component="div"
+              color="textSecondary"
             >
-            {post.frontmatter.tags?.map(tag => {
-              return(
-                <Chip label={`#` + tag}
-                      component="a"
-                      href={`/tags/${_.kebabCase(tag)}/`}
-                      style={{textDecoration: 'none'}}
-                      clickable 
-                />
-              )
-            })}
+              {" "}
+              {post.frontmatter.date}{" "}
+            </Typography>
+            <Stack
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              spacing={1}
+            >
+              {post.frontmatter.tags?.map(tag => {
+                return (
+                  <Chip
+                    label={`#` + tag}
+                    component="a"
+                    href={`/tags/${_.kebabCase(tag)}/`}
+                    style={{ textDecoration: "none" }}
+                    clickable
+                  />
+                )
+              })}
             </Stack>
           </header>
-          
+
           <hr />
-          <Typography className="body" component="div" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Typography
+            className="body"
+            component="div"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
           <hr />
           <footer></footer>
         </article>

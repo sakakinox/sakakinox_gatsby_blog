@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
-  pathPrefix: 'app/roulette',
+  pathPrefix: "app/roulette",
   siteMetadata: {
     title: `sakakinox.net`,
     author: {
@@ -45,7 +45,7 @@ module.exports = {
           {
             resolve: `gatsby-plugin-google-adsense`,
             options: {
-            publisherId: `${process.env.GOOGLE_ADSENSE_ID}`,
+              publisherId: `${process.env.GOOGLE_ADSENSE_ID}`,
             },
           },
           {
@@ -82,7 +82,7 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-feed",
-      options:{
+      options: {
         query: `
           {
             site {
@@ -153,20 +153,20 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-newrelic',
+      resolve: "gatsby-plugin-newrelic",
       options: {
         config: {
-            instrumentationType: 'proAndSPA',
-            accountId: `${process.env.NR_ACC_ID}`,
-            trustKey: `${process.env.NR_TRUST_KEY}`,
-            agentID: `${process.env.NR_AGENT_ID}`,
-            licenseKey: `${process.env.NR_LICENSE_KEY}`,
-            applicationID:`${process.env.NR_APP_ID}`,
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-        }
-      }
-     },
+          instrumentationType: "proAndSPA",
+          accountId: `${process.env.NR_ACC_ID}`,
+          trustKey: `${process.env.NR_TRUST_KEY}`,
+          agentID: `${process.env.NR_AGENT_ID}`,
+          licenseKey: `${process.env.NR_LICENSE_KEY}`,
+          applicationID: `${process.env.NR_APP_ID}`,
+          beacon: "bam.nr-data.net",
+          errorBeacon: "bam.nr-data.net",
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

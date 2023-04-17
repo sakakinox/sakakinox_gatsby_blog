@@ -1,5 +1,5 @@
 import React from "react"
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles"
 import PropTypes from "prop-types"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
@@ -9,13 +9,13 @@ import CardContent from "@mui/material/CardContent"
 import CardMedia from "@mui/material/CardMedia"
 import Hidden from "@mui/material/Hidden"
 
-const PREFIX = 'postscard';
+const PREFIX = "postscard"
 
 const classes = {
   card: `${PREFIX}-card`,
   cardDetails: `${PREFIX}-cardDetails`,
-  cardMedia: `${PREFIX}-cardMedia`
-};
+  cardMedia: `${PREFIX}-cardMedia`,
+}
 
 const StyledGrid = styled(Grid)({
   [`& .${classes.card}`]: {
@@ -27,10 +27,9 @@ const StyledGrid = styled(Grid)({
   [`& .${classes.cardMedia}`]: {
     width: 0,
   },
-});
+})
 
 export default function Postcard(props) {
-
   const { post } = props
 
   return (
@@ -42,7 +41,11 @@ export default function Postcard(props) {
               <Typography component="div" variant="h5">
                 {post.frontmatter.title || post.fields.slug}
               </Typography>
-              <Typography component="div" variant="subtitle1" color="textSecondary">
+              <Typography
+                component="div"
+                variant="subtitle1"
+                color="textSecondary"
+              >
                 {post.frontmatter.date}
               </Typography>
               <hr />
@@ -64,7 +67,7 @@ export default function Postcard(props) {
         </Card>
       </CardActionArea>
     </StyledGrid>
-  );
+  )
 }
 
 Postcard.propTypes = {

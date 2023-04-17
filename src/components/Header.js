@@ -1,5 +1,5 @@
 import React from "react"
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles"
 import PropTypes from "prop-types"
 import Toolbar from "@mui/material/Toolbar"
 import IconButton from "@mui/material/IconButton"
@@ -8,21 +8,17 @@ import AppsIcon from "@mui/icons-material/Apps"
 import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link"
 
-const PREFIX = 'Header';
+const PREFIX = "Header"
 
 const classes = {
   toolbar: `${PREFIX}-toolbar`,
   toolbarTitle: `${PREFIX}-toolbarTitle`,
   toolbarSecondary: `${PREFIX}-toolbarSecondary`,
   toolbarLink: `${PREFIX}-toolbarLink`,
-  linkButton: `${PREFIX}-linkButton`
-};
+  linkButton: `${PREFIX}-linkButton`,
+}
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled("div")(({ theme }) => ({
   [`& .${classes.toolbar}`]: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
@@ -42,13 +38,12 @@ const Root = styled('div')((
   },
 
   [`& .${classes.linkButton}`]: {
-    display: 'flex',
-    alignItems: 'center',
-  }
-}));
+    display: "flex",
+    alignItems: "center",
+  },
+}))
 
 export default function Header(props) {
-
   const { sections, title } = props
 
   return (
@@ -61,7 +56,7 @@ export default function Header(props) {
         </IconButton>
         <IconButton>
           <Link href="/app">
-          <AppsIcon />
+            <AppsIcon />
           </Link>
         </IconButton>
         <Typography
@@ -95,7 +90,7 @@ export default function Header(props) {
         ))}
       </Toolbar>
     </Root>
-  );
+  )
 }
 
 Header.propTypes = {
