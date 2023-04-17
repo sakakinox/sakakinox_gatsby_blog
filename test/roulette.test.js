@@ -7,16 +7,6 @@ import * as Gatsby from "gatsby";
 global.__PATH_PREFIX__ = "";
 const useStaticQuerySpy = jest.spyOn(Gatsby, "useStaticQuery");
 
-beforeEach(() => {
-  useStaticQuery.mockImplementation(() => ({
-    site: {
-      siteMetadata: {
-        title: "Test Title",
-      },
-    },
-  }));
-});
-
 // StaticQueryとuseStaticQueryのモック化
 beforeEach(() => {
   useStaticQuerySpy.mockImplementation(() => ({
