@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import RegexChecker from "../../components/RegexChecker"
 import SEO from "../../components/seo"
@@ -8,9 +9,10 @@ import TableCell from "@mui/material/TableCell"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
 
-const RegexPage = () => {
+const RegexPage = ({data}) => {
+    const { title } = data.site.siteMetadata
   return (
-    <Layout location={"/app/regex"} title={"hoge"}>
+    <Layout location={"/app/regex"} title={title}>
       <SEO title="Regex Checker" />
       <RegexChecker />
       <Table>
@@ -114,13 +116,38 @@ const RegexPage = () => {
           </TableRow>
           <TableRow>
             <TableCell>19</TableCell>
+            <TableCell>|</TableCell>
+            <TableCell>OR条件（選択）を表します。左右の表現のうち、どちらかを満たす場合にマッチします。</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>20</TableCell>
+            <TableCell>\b</TableCell>
+            <TableCell>単語の境界にマッチします。</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>21</TableCell>
+            <TableCell>\B</TableCell>
+            <TableCell>単語の境界以外にマッチします。</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>22</TableCell>
+            <TableCell>(abc)</TableCell>
+            <TableCell>キャプチャグループを作成し、グループ内の文字列にマッチします。</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>23</TableCell>
             <TableCell>{'{n}'}</TableCell>
             <TableCell>直前の要素がn回繰り返されることを表します。</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>20</TableCell>
-            <TableCell>|</TableCell>
-            <TableCell>OR条件（選択）を表します。左右の表現のうち、どちらかを満たす場合にマッチします。</TableCell>
+            <TableCell>24</TableCell>
+            <TableCell>{'{n,}'}</TableCell>
+            <TableCell>直前の要素がn回以上繰り返す場合にマッチします。</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>25</TableCell>
+            <TableCell>{'{n,m}'}</TableCell>
+            <TableCell>直前の要素がn回以上、m回以下繰り返す場合にマッチします。</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -129,3 +156,13 @@ const RegexPage = () => {
 }
 
 export default RegexPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
