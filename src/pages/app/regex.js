@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Layout from "../../components/layout";
+import Grid from "@mui/material/Grid";
+import { Box } from "@mui/material";
 
-const RegexChecker = ({ initialRegex = "" }) => {
+const RegexChecker = ({ initialRegex = '' }) => {
   const [input, setInput] = useState("");
   const [matchResult, setMatchResult] = useState([]);
   const [regex, setRegex] = useState(initialRegex);
@@ -71,38 +73,48 @@ const RegexChecker = ({ initialRegex = "" }) => {
 
   return (
     <Layout location={"/app/regex"} title={"hoge"}>
-      <TextField
-        label="正規表現"
-        variant="outlined"
-        fullWidth
-        margin="normal"
-        defaultValue={regex.source}
-        onChange={handleRegexChange}
-      />
-      <TextField
-        label="テスト文字列"
-        variant="outlined"
-        fullWidth
-        margin="normal"
-        multiline
-        rows={4}
-        value={input}
-        onChange={handleChange}
-      />
-      <Typography variant="h6" component="div">
-        <pre>
-          {matchResult.map((lineMatches, lineIndex) => (
-            <React.Fragment key={lineIndex}>
-              {lineMatches.map((match, index) => (
-                <span key={index} style={{ backgroundColor: match.isMatch ? "rgba(135,206,250, 0.3)" : "transparent" }}>
-                  {match.text}
-                </span>
-              ))}
-              {lineIndex < matchResult.length - 1 && <br />}
-            </React.Fragment>
-          ))}
-        </pre>
-      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={12}>
+          <TextField
+            label="正規表現"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            defaultValue={regex.source}
+            onChange={handleRegexChange}
+          />
+        </Grid>
+        <Grid item xs={12} md={12}>
+          <TextField
+            label="テスト文字列"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            multiline
+            rows={4}
+            value={input}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Box maxWidth="fixed">
+            <Typography variant="" component="div">
+              <pre>
+                {matchResult.map((lineMatches, lineIndex) => (
+                  <React.Fragment key={lineIndex}>
+                    {lineMatches.map((match, index) => (
+                      <span key={index} style={{ backgroundColor: match.isMatch ? "rgba(135,206,250, 0.3)" : "transparent" }}>
+                        {match.text}
+                      </span>
+                    ))}
+                    {lineIndex < matchResult.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </pre>
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
     </Layout>
   );
 };
