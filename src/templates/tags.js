@@ -15,25 +15,23 @@ const Tags = ({ pageContext, data, location }) => {
     <React.Fragment>
       <CssBaseline />
       <Layout location={location} title={siteTitle}>
-      <Seo
-          title={`#` + tag}
-        />
-      <header>
-        <Typography variant="h5"  component="div" itemProp="headline">{`#` + tagHeader}</Typography>
-      </header>
-      <hr />
-      <ul>
-        {edges.map(({ node }) => {
-          return (
-            <Postcard post={node} />
-          )
-        })}
-      </ul>
-      {/*
+        <Seo title={`#` + tag} />
+        <header>
+          <Typography variant="h5" component="div" itemProp="headline">
+            {`#` + tagHeader}
+          </Typography>
+        </header>
+        <hr />
+        <ul>
+          {edges.map(({ node }) => {
+            return <Postcard post={node} />
+          })}
+        </ul>
+        {/*
               This links to a page that does not yet exist.
               You'll come back to it!
             */}
-      <Link to="/tags">All tags</Link>
+        <Link to="/tags">All tags</Link>
       </Layout>
     </React.Fragment>
   )
@@ -62,7 +60,7 @@ Tags.propTypes = {
 }
 export default Tags
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -84,8 +82,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    site{
-      siteMetadata{
+    site {
+      siteMetadata {
         title
       }
     }

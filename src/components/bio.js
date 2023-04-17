@@ -7,34 +7,35 @@
 
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled"
 import { Grid, IconButton } from "@mui/material"
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`query BioQuery {
-  avatar: file(absolutePath: {regex: "/Fax2lqiP_400x400.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 50, height: 50, quality: 95, layout: FIXED)
-    }
-  }
-  site {
-    siteMetadata {
-      author {
-        name
-        summary
+  const data = useStaticQuery(graphql`
+    query BioQuery {
+      avatar: file(absolutePath: { regex: "/Fax2lqiP_400x400.png/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 50, height: 50, quality: 95, layout: FIXED)
+        }
       }
-      social {
-        twitter
-        github
-        lastfm
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
+            github
+            lastfm
+          }
+        }
       }
     }
-  }
-}
-`)
+  `)
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
@@ -43,7 +44,12 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.gatsbyImageData
 
   return (
-    <Grid container direction="column" alignItems="center"  justifyContent="space-around" >
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+      justifyContent="space-around"
+    >
       <Grid item xs={12}>
         {avatar && (
           <GatsbyImage
@@ -51,7 +57,8 @@ const Bio = () => {
             alt={author?.name || ``}
             imgStyle={{
               borderRadius: `50%`,
-            }} />
+            }}
+          />
         )}
       </Grid>
       <Grid item>
@@ -78,9 +85,9 @@ const Bio = () => {
             <PlayCircleFilledIcon />
           </Link>
         </IconButton>
-        </Grid>
+      </Grid>
     </Grid>
-  );
+  )
 }
 
 export default Bio

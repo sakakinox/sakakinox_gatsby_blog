@@ -1,50 +1,50 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Layout from "../../components/layout";
-import Grid from "@mui/material/Grid";
-import { Box } from "@mui/material";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import TextField from "@mui/material/TextField"
+import Typography from "@mui/material/Typography"
+import Layout from "../../components/layout"
+import Grid from "@mui/material/Grid"
+import { Box } from "@mui/material"
 
-const RegexChecker = ({ initialRegex = '' }) => {
-  const [input, setInput] = useState("");
-  const [matchResult, setMatchResult] = useState([]);
-  const [regex, setRegex] = useState(initialRegex);
+const RegexChecker = ({ initialRegex = "" }) => {
+  const [input, setInput] = useState("")
+  const [matchResult, setMatchResult] = useState([])
+  const [regex, setRegex] = useState(initialRegex)
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setInput(value);
-    const newMatchResult = getMatchResult(value, regex);
-    setMatchResult(newMatchResult);
-  };
+  const handleChange = e => {
+    const { value } = e.target
+    setInput(value)
+    const newMatchResult = getMatchResult(value, regex)
+    setMatchResult(newMatchResult)
+  }
 
-  const handleRegexChange = (e) => {
-    const { value } = e.target;
+  const handleRegexChange = e => {
+    const { value } = e.target
     try {
-      const newRegex = new RegExp(value, "gm");
-      setRegex(newRegex);
-      const newMatchResult = getMatchResult(input, newRegex);
-      setMatchResult(newMatchResult);
+      const newRegex = new RegExp(value, "gm")
+      setRegex(newRegex)
+      const newMatchResult = getMatchResult(input, newRegex)
+      setMatchResult(newMatchResult)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   const getMatchResult = (text, regex) => {
-    const lines = text.split('\n');
+    const lines = text.split("\n")
     const matchResult = lines.map(line => {
-      const lineMatchResult = [];
-      let lastIndex = 0;
-      let match;
+      const lineMatchResult = []
+      let lastIndex = 0
+      let match
 
       while ((match = regex.exec(line)) !== null) {
-        const matchedText = match[0];
-        const index = match.index;
+        const matchedText = match[0]
+        const index = match.index
 
         if (matchedText.length === 0) {
-          regex.lastIndex += 1;
+          regex.lastIndex += 1
           if (regex.lastIndex > line.length) {
-            break;
+            break
           }
         }
 
@@ -52,24 +52,24 @@ const RegexChecker = ({ initialRegex = '' }) => {
           lineMatchResult.push({
             text: line.substring(lastIndex, index),
             isMatch: false,
-          });
+          })
         }
-        lineMatchResult.push({ text: matchedText, isMatch: true });
-        lastIndex = index + matchedText.length;
+        lineMatchResult.push({ text: matchedText, isMatch: true })
+        lastIndex = index + matchedText.length
       }
 
       if (lastIndex < line.length) {
         lineMatchResult.push({
           text: line.substring(lastIndex),
           isMatch: false,
-        });
+        })
       }
 
-      return lineMatchResult;
-    });
+      return lineMatchResult
+    })
 
-    return matchResult;
-  };
+    return matchResult
+  }
 
   return (
     <Layout location={"/app/regex"} title={"hoge"}>
@@ -103,7 +103,14 @@ const RegexChecker = ({ initialRegex = '' }) => {
                 {matchResult.map((lineMatches, lineIndex) => (
                   <React.Fragment key={lineIndex}>
                     {lineMatches.map((match, index) => (
-                      <span key={index} style={{ backgroundColor: match.isMatch ? "rgba(135,206,250, 0.3)" : "transparent" }}>
+                      <span
+                        key={index}
+                        style={{
+                          backgroundColor: match.isMatch
+                            ? "rgba(135,206,250, 0.3)"
+                            : "transparent",
+                        }}
+                      >
                         {match.text}
                       </span>
                     ))}
@@ -116,11 +123,11 @@ const RegexChecker = ({ initialRegex = '' }) => {
         </Grid>
       </Grid>
     </Layout>
-  );
-};
+  )
+}
 
 RegexChecker.propTypes = {
   initialRegex: PropTypes.string,
-};
+}
 
-export default RegexChecker;
+export default RegexChecker

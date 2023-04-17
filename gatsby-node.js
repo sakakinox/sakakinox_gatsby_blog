@@ -29,8 +29,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000){
-          group(field: frontmatter___tags){
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
             fieldValue
           }
         }
@@ -46,7 +46,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes.filter(post => post.frontmatter.published !== false)
+  const posts = result.data.allMarkdownRemark.nodes.filter(
+    post => post.frontmatter.published !== false
+  )
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -56,18 +58,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       console.log(post.frontmatter.title + " : " + post.frontmatter.published)
       //if (post.frontmatter.published != false) {
-        const previousPostId = index === 0 ? null : posts[index - 1].id
-        const nextPostId =
-          index === posts.length - 1 ? null : posts[index + 1].id
-        createPage({
-          path: post.fields.slug,
-          component: blogPost,
-          context: {
-            id: post.id,
-            previousPostId,
-            nextPostId,
-          },
-        })    
+      const previousPostId = index === 0 ? null : posts[index - 1].id
+      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      createPage({
+        path: post.fields.slug,
+        component: blogPost,
+        context: {
+          id: post.id,
+          previousPostId,
+          nextPostId,
+        },
+      })
     })
     const tags = result.data.tagsGroup.group
 
