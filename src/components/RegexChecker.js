@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
-import { Box } from "@mui/material"
+import { Box, Card, CardContent } from "@mui/material"
 
 const RegexChecker = ({ initialRegex = "" }) => {
   const [input, setInput] = useState("")
@@ -98,29 +98,31 @@ const RegexChecker = ({ initialRegex = "" }) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Box maxWidth="fixed">
-            <Typography variant="" component="div">
-              <pre>
-                {matchResult.map((lineMatches, lineIndex) => (
-                  <React.Fragment key={lineIndex}>
-                    {lineMatches.map((match, index) => (
-                      <span
-                        key={index}
-                        style={{
-                          backgroundColor: match.isMatch
-                            ? "rgba(135,206,250, 0.3)"
-                            : "transparent",
-                        }}
-                      >
-                        {match.text}
-                      </span>
-                    ))}
-                    {lineIndex < matchResult.length - 1 && <br />}
-                  </React.Fragment>
-                ))}
-              </pre>
-            </Typography>
-          </Box>
+          <Card sx={{overflow: "scroll"}} variant="outlined">
+            <CardContent>
+              <Typography component="div">
+                <pre>
+                  {matchResult.map((lineMatches, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
+                      {lineMatches.map((match, index) => (
+                        <span
+                          key={index}
+                          style={{
+                            backgroundColor: match.isMatch
+                              ? "rgba(135,206,250, 0.3)"
+                              : "transparent",
+                          }}
+                        >
+                          {match.text}
+                        </span>
+                      ))}
+                      {lineIndex < matchResult.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
+                </pre>
+              </Typography>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
   )
