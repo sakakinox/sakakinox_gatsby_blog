@@ -72,19 +72,26 @@ test("spins and displays a random item", async () => {
   });
 });
 
-test("shuffle changes the order of items", async () => {
+test("shuffle changes the order of items", () => {
+  const data = {
+    site: {
+      siteMetadata: {
+        title: "Test Title",
+      },
+    },
+  };
   render(<Roulette data={data} />);
   const input = screen.getByLabelText("Input items (separate by line)");
   fireEvent.change(input, { target: { value: "Item1\nItem2\nItem3\nItem4" } });
   const shuffleButton = screen.getByText("Shuffle");
 
-  // シャッフルボタンをクリック
-  fireEvent.click(shuffleButton);
+  // シャッフルボタンを5回クリックして、ランダムに並び替える
+  for (let i = 0; i < 5; i++) {
+    fireEvent.click(shuffleButton);
+  }
 
-  // 元の順序と異なる順序が表示されるまで待機
-  await waitFor(() => {
-    expect(input.value).not.toBe("Item1\nItem2\nItem3\nItem4");
-  });
+  // 元の順序と異なる順序が表示されることを確認
+  expect(input.value).not.toBe("Item1\nItem2\nItem3\nItem4");
 });
 
 // ...
