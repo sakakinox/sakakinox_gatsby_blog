@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "@emotion/styled";
+import { styled } from '@mui/system';
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 const StyledCard = styled(Card)`

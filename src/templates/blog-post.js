@@ -4,6 +4,7 @@ import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Postcard from "../components/postscard"
+import OgpLink from '../components/OgpLink'
 import _ from "lodash"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -60,7 +61,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <Typography
             className="body"
             component="div"
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: post.fields.modifiedHtml }}
           />
           <hr />
           <footer></footer>
@@ -91,6 +92,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        modifiedHtml
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

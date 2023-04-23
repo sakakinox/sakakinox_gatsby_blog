@@ -95,6 +95,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+    
+    // カスタムタグを検出して置き換える処理
+    const ogpLinkPattern = /\[\[ogp:(.+?)\]\]/g
+    const modifiedHtml = node.html.replace(
+      ogpLinkPattern,
+      (_, url) => `<OgpLink url="${url}" />`
+    )
+
+    createNodeField({
+      node,
+      name: 'modifiedHtml',
+      value: modifiedHtml,
+    })
   }
 }
 
