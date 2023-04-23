@@ -1,14 +1,15 @@
-import React from "react"
+import React from 'react';
 import { graphql } from "gatsby"
 import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Postcard from "../components/postscard"
 import OgpLink from '../components/OgpLink'
+import { MDXRenderer, hydrate } from "gatsby-plugin-mdx";
 import _ from "lodash"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx;
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -58,11 +59,9 @@ const BlogPostTemplate = ({ data, location }) => {
           </header>
 
           <hr />
-          <Typography
-            className="body"
-            component="div"
-            dangerouslySetInnerHTML={{ __html: post.fields.modifiedHtml }}
-          />
+          
+           {post.body}
+         
           <hr />
           <footer></footer>
         </article>
@@ -86,21 +85,26 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author {
+          name
+          summary
+        }
       }
     }
     mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       body
-      fields {
-        modifiedHtml
-      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
         published
         tags
+      }
+      fields {
+        slug
+        modifiedHtml
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
