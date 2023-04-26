@@ -5,11 +5,12 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Postcard from "../components/postscard"
 import OgpLink from '../components/OgpLink'
-import { MDXRenderer, hydrate } from "gatsby-plugin-mdx";
 import _ from "lodash"
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data, location, children }) => {
   const post = data.mdx;
+  console.log("post.body:", post.body);
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -59,9 +60,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </header>
 
           <hr />
-          
-           {post.body}
-         
+          <MDXRenderer>{post.body}</MDXRenderer>
           <hr />
           <footer></footer>
         </article>

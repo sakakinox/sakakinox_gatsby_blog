@@ -1,6 +1,7 @@
 const path = require(`path`)
 const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { node } = require("prop-types")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -27,6 +28,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            body
           }
         }
         tagsGroup: allMdx(limit: 2000) {
@@ -67,6 +69,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          body: post.body,
         },
       })
     })
@@ -95,22 +98,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     });
-
-    // Check if the 'html' property exists on the node
-    if (node.body) {
-      // カスタムタグを検出して置き換える処理
-      const ogpLinkPattern = /\[\[ogp:(.+?)\]\]/g;
-      const modifiedHtml = node.body.replace(
-        ogpLinkPattern,
-        (_, url) => `<OgpLink url="${url}" />`
-      );
-
-      createNodeField({
-        node,
-        name: 'modifiedHtml',
-        value: modifiedHtml,
-      });
-    }
   }
 };
 
