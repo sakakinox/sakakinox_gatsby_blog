@@ -7,7 +7,7 @@ import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes.filter(
+  const posts = data.allMdx.nodes.filter(
     post => post.frontmatter.published !== false
   )
 
@@ -53,7 +53,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {

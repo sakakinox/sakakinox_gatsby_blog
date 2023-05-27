@@ -9,7 +9,7 @@ import Postcard from "../components/postscard"
 const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { edges, totalCount } = data.allMdx
   const tagHeader = `${tag}:(${totalCount})`
   return (
     <React.Fragment>
@@ -41,7 +41,7 @@ Tags.propTypes = {
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -61,7 +61,7 @@ Tags.propTypes = {
 export default Tags
 export const pageQuery = graphql`
   query ($tag: String) {
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
@@ -73,7 +73,7 @@ export const pageQuery = graphql`
             slug
           }
           excerpt(pruneLength: 160)
-          html
+          body
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
