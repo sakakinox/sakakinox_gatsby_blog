@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import { CssBaseline, Typography } from "@mui/material"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
 
 const Tags = ({ pageContext, data, location }) => {
