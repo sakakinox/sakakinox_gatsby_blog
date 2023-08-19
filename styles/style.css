@@ -125,7 +125,8 @@
   }
   
   h3 {
-    font-size: var(--fontSize-3);
+    font-weight: 400;
+    font-size: var(--fontSize-2);
   }
   
   h4 {
