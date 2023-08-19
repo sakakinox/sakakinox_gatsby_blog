@@ -8,6 +8,7 @@ import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
+import Comments from "../../components/Comments"
 
 const RegexPage = ({ data }) => {
   const { title } = data.site.siteMetadata
@@ -169,6 +170,8 @@ const RegexPage = ({ data }) => {
           </TableRow>
         </TableBody>
       </Table>
+      <hr />
+      <Comments />
     </Layout>
   )
 }

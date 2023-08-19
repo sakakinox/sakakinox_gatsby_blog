@@ -4,7 +4,7 @@ import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
 import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
-import OgpLink from '../components/OgpLink'
+import Comments from '../components/Comments'
 import _ from "lodash"
 
 const BlogPostTemplate = ({ data, location, children }) => {
@@ -59,6 +59,8 @@ const BlogPostTemplate = ({ data, location, children }) => {
 
           <hr />
           <section itemProp="articleBody">{children}</section>
+          <hr />
+          <Comments />
           <hr />
           <footer></footer>
         </article>
