@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { CssBaseline, Grid } from "@mui/material"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import Postcard from "../components/postscard"
 
 const BlogIndex = ({ data, location }) => {

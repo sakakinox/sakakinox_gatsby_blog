@@ -3,7 +3,7 @@ import Layout from "../../components/layout"
 import { Link } from "gatsby"
 import { Button, Typography } from "@mui/material"
 import { graphql } from "gatsby"
-import SEO from "../../components/seo"
+import SEO from "../../components/Seo"
 
 const IndexPage = ({ data }) => {
   const { title } = data.site.siteMetadata

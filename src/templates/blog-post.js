@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from "gatsby"
 import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
 import OgpLink from '../components/OgpLink'
 import _ from "lodash"
