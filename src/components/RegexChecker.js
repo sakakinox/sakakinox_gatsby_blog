@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
-import { Box, Card, CardContent } from "@mui/material"
+import { Card, CardContent } from "@mui/material"
 
 const RegexChecker = ({ initialRegex = "" }) => {
   const [input, setInput] = useState("")

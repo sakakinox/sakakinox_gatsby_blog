@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import RegexChecker from "../../components/RegexChecker"
-import SEO from "../../components/Seo"
+import Seo from "../../components/Seo"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
@@ -14,7 +14,7 @@ const RegexPage = ({ data }) => {
   const { title } = data.site.siteMetadata
   return (
     <Layout location={"/app/regex"} title={title}>
-      <SEO title="Regex Checker" />
+      <Seo title="Regex Checker" />
       <RegexChecker />
       <Table>
         <TableHead>
