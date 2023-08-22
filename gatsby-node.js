@@ -2,6 +2,8 @@ const path = require(`path`)
 const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { node } = require("prop-types")
+const { execSync } = require("child_process");
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -101,6 +103,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     });
+    const gitAuthorTime = execSync(
+      `git log -1 --pretty=format:%aI ${node.internal.contentFilePath}`
+    ).toString();
+
+    createNodeField({
+      name: "gitAuthorTime",
+      node,
+      value: gitAuthorTime,
+    });
   }
 };
 
@@ -145,6 +156,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug: String
+      gitAuthorTime: Date @dateformat
       modifiedHtml: String
     }
     type MdxFrontmatter implements Node {

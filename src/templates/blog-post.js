@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from "gatsby"
-import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
+import { CssBaseline, Grid, Typography, Chip, Stack, Box } from "@mui/material"
+import {CalendarToday, Update} from '@mui/icons-material';
 import Layout from "../components/layout"
 import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
@@ -29,13 +30,19 @@ const BlogPostTemplate = ({ data, location, children }) => {
             <Typography variant="h5" component="div" itemProp="headline">
               {post.frontmatter.title}
             </Typography>
-            <Typography
-              variant="subtitle1"
-              component="div"
-              color="textSecondary"
-            >
-              {" "}
-              {post.frontmatter.date}{" "}
+            <Typography variant="subtitle1" component="div" color="textSecondary" display="flex" alignItems="center" gap={1} >
+              <Box component="span" display="flex" alignItems="center">
+                <CalendarToday fontSize="inherit" />
+                <Box component="span" ml={0.5}>
+                  {post.frontmatter.date}
+                </Box>
+              </Box>
+              <Box component="span" display="flex" alignItems="center">
+                <Update fontSize="small" />
+                <Box component="span" ml={0.5}>
+                  {post.fields.gitAuthorTime}
+                </Box>
+              </Box>
             </Typography>
             <Stack
               direction="row"
@@ -103,12 +110,14 @@ export const pageQuery = graphql`
       }
       fields {
         slug
+        gitAuthorTime(formatString: "MMMM DD, YYYY")
         modifiedHtml
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
+        gitAuthorTime(formatString: "MMMM DD, YYYY")
       }
       excerpt(pruneLength: 160)
       frontmatter {
@@ -120,6 +129,7 @@ export const pageQuery = graphql`
     next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
+        gitAuthorTime(formatString: "MMMM DD, YYYY")
       }
       excerpt(pruneLength: 160)
       frontmatter {

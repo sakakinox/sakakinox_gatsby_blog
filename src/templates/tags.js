@@ -71,6 +71,7 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            gitAuthorTime(formatString: "MMMM DD, YYYY")
           }
           excerpt(pruneLength: 160)
           body
