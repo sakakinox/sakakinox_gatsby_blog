@@ -58,6 +58,7 @@ export const pageQuery = graphql`
         excerpt
         fields {
           slug
+          gitAuthorTime(formatString: "MMMM DD, YYYY")
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
