@@ -1,18 +1,14 @@
 {
     "Develop": {
-      "bgcolor": "lightblue",
+      "bgcolor": "#ffe0b2",
       "icon": "💻"
     },
-    "nature": {
-      "bgcolor": "green",
-      "icon": "EmojiNature"
-    },
-    "coffee": {
-      "bgcolor": "brown",
-      "icon": "LocalCafe"
+    "Gadget": {
+      "bgcolor": "#b2dfdb",
+      "icon": "🤖"
     },
     "default": {
-        "bgcolor": "gray",
+        "bgcolor": "#ffcdd2",
         "icon": "📝"
     }
   }
