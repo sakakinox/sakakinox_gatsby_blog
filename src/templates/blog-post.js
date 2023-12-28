@@ -7,11 +7,15 @@ import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
 import Comments from '../components/Comments'
 import _ from "lodash"
+import twemoji from '@twemoji/api'
+import tagStyles from '../components/tagStyles.json';
 
 const BlogPostTemplate = ({ data, location, children }) => {
   const post = data.mdx;
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const tag = post.frontmatter.tags[0];
+  const tagStyle = tagStyles[tag] || tagStyles["default"];
 
   return (
     <React.Fragment>
@@ -27,6 +31,21 @@ const BlogPostTemplate = ({ data, location, children }) => {
           itemType="http://schema.org/Article"
         >
           <header>
+          <Box>
+              <Typography
+                bgcolor= {tagStyle.bgcolor}
+                width={"100%"}
+                align="center"
+                alignItems={"center"}
+                justifyContent={"center"}
+                height="250px"
+                display={"flex"}
+                variant="h2"
+                marginBottom={"5%"}
+                dangerouslySetInnerHTML={{ __html: twemoji.parse(tagStyle.icon) }}
+                >
+              </Typography>
+            </Box>
             <Typography variant="h5" component="div" itemProp="headline">
               {post.frontmatter.title}
             </Typography>
