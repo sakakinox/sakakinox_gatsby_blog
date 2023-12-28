@@ -122,6 +122,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
+        tags
         date(formatString: "MMMM DD, YYYY")
         description
       }
@@ -134,6 +135,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
+        tags
         date(formatString: "MMMM DD, YYYY")
         description
       }

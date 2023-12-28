@@ -3,9 +3,10 @@ import { styled } from "@mui/material/styles"
 import PropTypes from "prop-types"
 import { Box, Card, Grid, Typography, CardActionArea } from "@mui/material"
 import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
 import Hidden from "@mui/material/Hidden"
 import {CalendarToday, Update} from '@mui/icons-material';
+import twemoji from '@twemoji/api'
+import tagStyles from './tagStyles.json';
 
 const PREFIX = "postscard"
 
@@ -29,11 +30,28 @@ const StyledGrid = styled(Grid)({
 
 export default function Postcard(props) {
   const { post } = props
-
+  const tag = post.frontmatter.tags[0];
+  const tagStyle = tagStyles[tag] || tagStyles["default"];
   return (
     <StyledGrid item xs={12} md={12} marginBottom={2}>
       <CardActionArea component="a" href={post.fields.slug}>
         <Card className={classes.card}>
+          <Hidden xsDown>
+            <Box>
+              <Typography
+                bgcolor= {tagStyle.bgcolor}
+                width='120px'
+                align="center"
+                alignItems={"center"}
+                justifyContent={"center"}
+                height={"100%"}
+                display={"flex"}
+                variant="h2"
+                dangerouslySetInnerHTML={{ __html: twemoji.parse(tagStyle.icon) }}
+                >
+              </Typography>
+            </Box>
+          </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="div" variant="h5">
@@ -62,13 +80,6 @@ export default function Postcard(props) {
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
-            <CardMedia
-              className={classes.cardMedia}
-              image={post.image}
-              title={post.imageTitle}
-            />
-          </Hidden>
         </Card>
       </CardActionArea>
     </StyledGrid>
