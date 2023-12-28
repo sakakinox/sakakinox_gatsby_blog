@@ -55,6 +55,10 @@ const SEO = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `../../conent/assets/Fax2lqiP_400x400.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
