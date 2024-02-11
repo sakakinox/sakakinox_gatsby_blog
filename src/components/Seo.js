@@ -9,14 +9,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
+import logo from "../../content/assets/logo_1200x630.png"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, ogtype, locale }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+            siteUrl
             description
             social {
               twitter
@@ -29,6 +32,7 @@ const SEO = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const location = useLocation()
 
   return (
     <Helmet
@@ -52,7 +56,23 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: ogtype,
+        },
+        {
+          property: `og:site_name`,
+          content: site.siteMetadata.title,
+        },
+        {
+          property: `og:url`,
+          content: location.href,
+        },
+        {
+          property: `og:image`,
+          content: location.origin+logo,
+        },
+        {
+          property: `og:locale`,
+          content: locale,
         },
         {
           name: `twitter:card`,
@@ -60,7 +80,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
+          content: `@`+site.siteMetadata?.social?.twitter || ``,
         },
         {
           name: `twitter:title`,
@@ -76,7 +96,9 @@ const SEO = ({ description, lang, meta, title }) => {
 }
 
 SEO.defaultProps = {
-  lang: `jp`,
+  lang: `ja`,
+  locale: `ja_JP`,
+  ogtype: `website`,
   meta: [],
   description: ``,
 }
@@ -84,6 +106,8 @@ SEO.defaultProps = {
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  locale: PropTypes.string,
+  ogtype: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
