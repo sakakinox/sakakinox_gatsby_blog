@@ -24,6 +24,7 @@ const BlogPostTemplate = ({ data, location, children }) => {
         <Seo
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          ogtype='article'
         />
         <article
           className="blog-post"
