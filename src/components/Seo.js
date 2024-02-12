@@ -64,11 +64,11 @@ const SEO = ({ description, lang, meta, title, ogtype, locale }) => {
         },
         {
           property: `og:url`,
-          content: location.href,
+          content: location.origin + location.pathname,
         },
         {
           property: `og:image`,
-          content: location.origin+logo,
+          content: site.siteMetadata.siteUrl + logo,
         },
         {
           property: `og:locale`,
@@ -80,7 +80,7 @@ const SEO = ({ description, lang, meta, title, ogtype, locale }) => {
         },
         {
           name: `twitter:creator`,
-          content: `@`+site.siteMetadata?.social?.twitter || ``,
+          content: `@`+ site.siteMetadata?.social?.twitter || ``,
         },
         {
           name: `twitter:title`,
