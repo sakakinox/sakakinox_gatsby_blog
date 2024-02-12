@@ -64,7 +64,7 @@ const SEO = ({ description, lang, meta, title, ogtype, locale }) => {
         },
         {
           property: `og:url`,
-          content: location.origin + location.pathname,
+          content: site.siteMetadata.siteUrl + location.pathname,
         },
         {
           property: `og:image`,
