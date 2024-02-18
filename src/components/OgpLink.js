@@ -1,73 +1,53 @@
-import React, { useState, useEffect } from "react";
-import { styled } from '@mui/system';
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+// src/components/OGPLink.js
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-const StyledCard = styled(Card)`
-  display: flex;
-  margin-bottom: 16px;
-  text-decoration: none;
-  &:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const CardContentContainer = styled(CardContent)`
-  display: flex;
-  flex-direction: column;
-`;
-
-const OgpLink = ({ url }) => {
-  const [ogpInfo, setOgpInfo] = useState(null);
-
-  useEffect(() => {
-    const fetchOgpInfo = async () => {
-      try {
-        const response = await fetch("/api/get-ogp", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url }),
-        });
-        const data = await response.json();
-        setOgpInfo(data);
-      } catch (error) {
-        console.error("Failed to fetch OGP info:", error);
+const OGPLink = ({ url }) => {
+  const data = useStaticQuery(graphql`
+  query {
+    allDataJson {
+      edges {
+        node {
+          OgpLinks{
+            URL
+            ogp {
+              og_title
+              og_site_name
+              og_image
+              og_description
+            }
+          }
+        }
       }
-    };
-
-    fetchOgpInfo();
-  }, [url]);
-
-  if (!ogpInfo || !ogpInfo.success) {
-    return <a href={url}>{url}</a>;
+    }
   }
+  `);
+  
+  const ogpInfo = data.allDataJson.edges
+                  .flatMap(edge => edge.node.OgpLinks) // edges の配列から OgpLinks を抽出し、1つの配列に平坦化
+                  .find(link => link.URL === url);
+                  
+  
 
-  const { ogTitle, ogDescription, ogImage } = ogpInfo.data;
-
+  if (!ogpInfo || !ogpInfo.ogp.og_title) {
+    return (
+    <div>
+      OGP情報が見つかりませんでした。, URL: {url}, ${__dirname}
+    </div>
+    );
+  }
+  
   return (
-    <a href={url} style={{ textDecoration: "none" }}>
-      <StyledCard>
-        {ogImage && (
-          <CardMedia
-            component="img"
-            alt={ogTitle}
-            height="140"
-            image={ogImage.url}
-            sx={{ width: 151 }}
-          />
-        )}
-        <CardContentContainer>
-          <Typography gutterBottom variant="h5" component="div">
-            {ogTitle}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {ogDescription}
-          </Typography>
-        </CardContentContainer>
-      </StyledCard>
+    <a href={url} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', padding: '10px', borderRadius: '5px' }}>
+        {ogpInfo.ogp.og_image && <img src={ogpInfo.ogp.og_image} alt={ogpInfo.ogp.og_title} style={{ width: '160px', height: '120px', marginRight: '10px', borderRadius: '5px' }} />}
+        <div>
+          <div style={{ fontWeight: 'bold' }}>{ogpInfo.ogp.og_title}</div>
+          <div>{ogpInfo.ogp.og_description}</div>
+        </div>
+      </div>
     </a>
   );
 };
 
-export default OgpLink;
+export default OGPLink;
