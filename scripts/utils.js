@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const { JSDOM } = require('jsdom');
 const fs = require('fs').promises;
 
-const ogpJsonPath = 'content/data/ogplink.json'; // OGP情報を保存するJSONファイルのパス
+const ogpJsonPath = 'content/data/OgpLinks.json'; // OGP情報を保存するJSONファイルのパス
 
 const fetchAndSaveOGPInfo = async (url) => {
     let data, json;
@@ -17,7 +17,7 @@ const fetchAndSaveOGPInfo = async (url) => {
     const existingEntryIndex = json.OgpLinks.findIndex(link => link.URL === url);
 
     if (existingEntryIndex !== -1 && json.OgpLinks[existingEntryIndex].isFetched) {
-        console.log('Using cached OGP data:', json.OgpLinks[existingEntryIndex].ogp);
+        console.log('Using cached OGP data for:',url, json.OgpLinks[existingEntryIndex].ogp);
         return json.OgpLinks[existingEntryIndex].ogp; // キャッシュされたデータを使用
     } else {
         // OGP情報のフェッチ

@@ -6,7 +6,7 @@ const { fetchAndSaveOGPInfo } = require('./utils');
 // MDXファイル内の特定のタグを解析してURLを抽出する関数
 async function extractUrlsFromMdx(pattern) {
   const files = glob.sync(pattern);
-  const urlRegex = /<ogplink (https?:\/\/[^>]+)\/>/g; // タグの形式に応じて正規表現を調整してください
+  const urlRegex = /<OgpLink url="(https?:\/\/[^>"]+).*\>/g; // タグの形式に応じて正規表現を調整してください
   let urls = [];
 
   for (const file of files) {
