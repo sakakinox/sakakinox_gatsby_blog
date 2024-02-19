@@ -1,73 +1,86 @@
-import React, { useState, useEffect } from "react";
-import { styled } from '@mui/system';
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Card, CardActionArea, CardContent, CardMedia, Typography, Box } from '@mui/material';
+import LinkIcon from '@mui/icons-material/Link';
 
-const StyledCard = styled(Card)`
-  display: flex;
-  margin-bottom: 16px;
-  text-decoration: none;
-  &:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const CardContentContainer = styled(CardContent)`
-  display: flex;
-  flex-direction: column;
-`;
-
-const OgpLink = ({ url }) => {
-  const [ogpInfo, setOgpInfo] = useState(null);
-
-  useEffect(() => {
-    const fetchOgpInfo = async () => {
-      try {
-        const response = await fetch("/api/get-ogp", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url }),
-        });
-        const data = await response.json();
-        setOgpInfo(data);
-      } catch (error) {
-        console.error("Failed to fetch OGP info:", error);
+const OGPLink = ({ url }) => {
+  const data = useStaticQuery(graphql`
+  query {
+    allDataJson {
+      edges {
+        node {
+          OgpLinks {
+            URL
+            ogp {
+              og_title
+              og_site_name
+              og_image
+              og_description
+            }
+          }
+        }
       }
-    };
+    }
+  }
+  `);
 
-    fetchOgpInfo();
-  }, [url]);
+  const ogpInfo = data.allDataJson.edges
+                  .flatMap(edge => edge.node.OgpLinks)
+                  .find(link => link.URL === url);
 
-  if (!ogpInfo || !ogpInfo.success) {
-    return <a href={url}>{url}</a>;
+  if (!ogpInfo || !ogpInfo.ogp.og_title) {
+    return (
+      <Card sx={{ maxWidth: 700, my: 2, marginLeft: 4}}>
+        <CardActionArea href={url} target="_blank" rel="noopener noreferrer">
+          <CardContent>
+            <Typography variant="body2">
+              {url}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    );
   }
 
-  const { ogTitle, ogDescription, ogImage } = ogpInfo.data;
-
-  return (
-    <a href={url} style={{ textDecoration: "none" }}>
-      <StyledCard>
-        {ogImage && (
-          <CardMedia
-            component="img"
-            alt={ogTitle}
-            height="140"
-            image={ogImage.url}
-            sx={{ width: 151 }}
-          />
-        )}
-        <CardContentContainer>
-          <Typography gutterBottom variant="h5" component="div">
-            {ogTitle}
+return (
+  <Card sx={{ display: 'flex', maxWidth: 700, my: 2, marginLeft: 4 }}>
+    <CardActionArea href={url} target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', justifyContent: 'start', flexGrow: 1 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, p: 2 }}>
+        <Typography gutterBottom variant="subtitle1" component="div">
+          {ogpInfo.ogp.og_title}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+            marginBottom: '4px',
+          }}
+        >
+          {ogpInfo.ogp.og_description}
+        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <LinkIcon sx={{ marginRight: '5px' }} />
+          <Typography variant="body2" sx={{ overflow: 'hidden', textOverflow: 'ellipsis',  }}>
+            {url}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {ogDescription}
-          </Typography>
-        </CardContentContainer>
-      </StyledCard>
-    </a>
-  );
-};
+        </Box>
+      </Box>
+      {ogpInfo.ogp.og_image && (
+        <CardMedia
+          component="img"
+          sx={{ width: 151, objectFit: 'cover' }}
+          image={ogpInfo.ogp.og_image}
+          alt={ogpInfo.ogp.og_title || 'OGP Image'}
+        />
+      )}
+    </CardActionArea>
+  </Card>
+);
+}
 
-export default OgpLink;
+export default OGPLink;
