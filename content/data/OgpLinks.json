@@ -19,6 +19,266 @@
         "og:image": "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=73d79a89bded",
         "og:description": "I just installed MariaDB and the status is :\n\n* mariadb.service - MariaDB 10.3.18 database server\n   Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)\n   Active: "
       }
+    },
+    {
+      "URL": "https://lxd-ja.readthedocs.io/ja/latest/instances/#type-proxy",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "インスタンス",
+        "og:site_name": "LXD documentation",
+        "og:image": "https://linuxcontainers.org/static/img/containers.png",
+        "og:description": "インスタンスについて, インスタンスの作成, インスタンスの管理, インスタンスの設定, スナップショットの作成, プロファイルの使用, cloud-initの使用, コマンドの実行, コンソールへのアクセス, ファイルへのアクセス, エラーのトラブルシューティング, インスタンスの設定-., コンテナ実行環境."
+      }
+    },
+    {
+      "URL": "https://github.com/sakakinox/sakuracloud-maintenance-checker",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "GitHub - sakakinox/sakuracloud-maintenance-checker",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/bfce95ac75194875eccdcdfde3c9b191a97012a0698aeb21088bbbb220599362/sakakinox/sakuracloud-maintenance-checker",
+        "og:description": "Contribute to sakakinox/sakuracloud-maintenance-checker development by creating an account on GitHub."
+      }
+    },
+    {
+      "URL": "https://sakakinox.net/posts/p24/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "sakura-maintenance-checkerにプルリクをもらったので改修した",
+        "og:site_name": "sakakinox.net",
+        "og:image": "https://sakakinox.net/static/logo_1200x630-d5a899977ade361444bf809644f8ccab.png",
+        "og:description": "経緯 下記の記事で紹介したようにさくらのクラウドのメンテナンス情報を zabbix で監視するスクリプトを書いた。\n\nhttps://sakakinox.net/posts/p11/\n\nこれを社内で使ってくれたが、うまく動かないということで改修してプルリクエストをくれた。 とてもありがたい。\n\n機能追加\n\n今までは共有セグメントの IP…"
+      }
+    },
+    {
+      "URL": "https://developer.sakura.ad.jp/cloud/api/1.1/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.zerotier.com/download/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Download",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": "Download ZeroTier "
+      }
+    },
+    {
+      "URL": "https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04-ja",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.garmin.co.jp/news/pressroom/news2021-0406-blood-oxygen-tracking/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Garmin 「血中酸素トラッキング」機能への対応を4月下旬以降に対象のウェアラブルデバイスで順次開始  | プレスリリース | Garmin 日本",
+        "og:site_name": "Garmin Japan",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://cwiki.apache.org/confluence/display/CLOUDSTACK/View+Console+and+Console+Proxy+Troubleshooting",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://users.cloudstack.apache.narkive.com/P6Imiu4w/vm-console-access-denied",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://github.com/apache/cloudstack/issues/3164",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Cannot open console: ConsoleProxyServlet NullPointerException · Issue #3164 · apache/cloudstack",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/1207abc6372f7afc015a267a39c043e1b7b716eec66289eab5e7ab9b815e6990/apache/cloudstack/issues/3164",
+        "og:description": "ISSUE TYPE Bug Report COMPONENT NAME Console proxy CLOUDSTACK VERSION 4.11.2.0 CONFIGURATION N/A OS / ENVIRONMENT CentOS 7.6.1810 SUMMARY I've upgraded CloudStack from version 4.9.3.1 to ver. 4.11...."
+      }
+    },
+    {
+      "URL": "http://docs.cloudstack.apache.org/en/4.11.1.0/adminguide/systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://cwiki.apache.org/confluence/display/CLOUDSTACK/Procedure+to+Replace+realhostip.com+with+Your+Own+Domain+Name",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://ja.wordpress.org/plugins/staticpress2019/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "StaticPress2019",
+        "og:site_name": "WordPress.org 日本語",
+        "og:image": "https://ps.w.org/staticpress2019/assets/banner-772x250.png?rev=2206160",
+        "og:description": "WordPress を静的なサイトやブログに変換します。"
+      }
+    },
+    {
+      "URL": "https://support.plesk.com/hc/en-us/articles/213403429--How-to-upgrade-MySQL-5-5-to-5-6-5-7-or-MariaDB-5-5-to-10-x-on-Linux-",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://crowdin.com/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Crowdin | Localization Management Platform for agile teams",
+        "og:site_name": "Crowdin",
+        "og:image": "https://d2gma3rgtloi6d.cloudfront.net/86d172fd/images/content/crowdin-share.png",
+        "og:description": "Crowdin's localization management platform is a technology solution for your team."
+      }
+    },
+    {
+      "URL": "https://poedit.net/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Poedit Translation Editor — Poedit",
+        "og:site_name": "Poedit",
+        "og:image": "https://poedit.net/images/og-image.jpg",
+        "og:description": "Simple translation editor for gettext, XLIFF and JSON"
+      }
+    },
+    {
+      "URL": "https://www.ns-lab.org/digiloog/2019/03/article_5561/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.php.net/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "https://www.php.net/images/meta-image.png",
+        "og:description": "PHP is a popular general-purpose scripting language that powers everything from your blog to the most popular websites in the world."
+      }
+    },
+    {
+      "URL": "https://github.com/kkos/oniguruma",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "GitHub - kkos/oniguruma: regular expression library",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/c0c4df3db97f1ae9be57b3a2e6d14771944f621186f84817b417ef584d93f8f8/kkos/oniguruma",
+        "og:description": "regular expression library. Contribute to kkos/oniguruma development by creating an account on GitHub."
+      }
+    },
+    {
+      "URL": "https://github.com/lxc/lxc/issues/4072",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Failed to mount cgroup at /sys/fs/cgroup/systemd: Operation not permitted · Issue #4072 · lxc/lxc",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/9d7ce7d939199f76b54e5be8fc9a8f87984d49fbf297c649f9799aaec5ec05d0/lxc/lxc/issues/4072",
+        "og:description": "Required information Distribution: Gentoo Distribution version: n/a lxc-start --version: 4.0.11 lxc-checkconfig: LXC version 4.0.11 Kernel configuration not found at /proc/config.gz; searching... K..."
+      }
+    },
+    {
+      "URL": "https://tech.virtualtech.jp/entry/2022/06/08/115030",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Ubuntu 22.04でkubeadmでKubernetesクラスターが動かない？ - 仮想化通信",
+        "og:site_name": "仮想化通信",
+        "og:image": "https://ogimage.blog.st-hatena.com/6653812171402451851/13574176438100103892/1654838189",
+        "og:description": "あらすじ Ubuntu 22.04でkubeadmでKubernetesクラスターを作ってみたのですが、[WARNING SystemVerification]: missing optional cgroups: blkioなんていう警告が出ますし、セットアップ後のKubernetesもKubernetes APIの動きがおかしい状況になりました。 一方、同じ方法でセットアップしたUbuntu 20.04やUbuntu 18.04では特に問題なく動きます。 $ lsb_release -a No LSB modules are available. Distributor ID: Ubunt…"
+      }
+    },
+    {
+      "URL": "https://gihyo.jp/admin/serial/01/linux_containers/0048",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "第48回　cgroup v2から使うコントローラとmiscコントローラ | gihyo.jp",
+        "og:site_name": "gihyo.jp",
+        "og:image": "https://gihyo.jp/assets/images/ICON/2022/1998_linux_container2022.png",
+        "og:description": "年末が近づきAdvent Calendarの季節になり、毎年参加しているAdvent Calendarの案内が今年もあったので、また記事でAdvent Calendarに参加しようと思い戻ってきました。"
+      }
+    },
+    {
+      "URL": "https://support.cpanel.net/hc/en-us/articles/4413888647191-AutoSSL-orders-are-stuck-in-pending-status-with-recent-HTTP-DCV-changes",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "SSL Server Rating Guide",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/65486f46d1814c247be5c6d9acc6e045bbd419fe6706475aba812670bf35eceb/ssllabs/research",
+        "og:description": "Contribute to ssllabs/research development by creating an account on GitHub."
+      }
+    },
+    {
+      "URL": "https://amzn.to/3tk8u8K",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.apple.com/jp/airpods-pro/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "AirPods Pro（第2世代）",
+        "og:site_name": "Apple（日本）",
+        "og:image": "https://www.apple.com/v/airpods-pro/i/images/meta/og__eui2mpgzwyaa_overview.png?202312251601",
+        "og:description": "AirPods Pro（第2世代）。適応型オーディオ、最大2倍の雑音を消すアクティブノイズキャンセリング、外部音取り込みモード。そして、パーソナライズされた空間オーディオを届けます。"
+      }
     }
   ]
 }
