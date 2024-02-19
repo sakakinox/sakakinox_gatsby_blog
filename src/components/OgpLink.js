@@ -6,7 +6,7 @@ import LinkIcon from '@mui/icons-material/Link';
 const OGPLink = ({ url }) => {
   const data = useStaticQuery(graphql`
   query {
-    allDataJson {
+    allDataJson(filter: {OgpLinks: {}}) {
       edges {
         node {
           OgpLinks {
@@ -25,8 +25,8 @@ const OGPLink = ({ url }) => {
   `);
 
   const ogpInfo = data.allDataJson.edges
-                  .flatMap(edge => edge.node.OgpLinks || [])
-                  .find(link => link.URL === url || {});
+                  .flatMap(edge => edge.node.OgpLinks)
+                  .find(link => link.URL === url);
 
   if (!ogpInfo || !ogpInfo.ogp || !ogpInfo.ogp.og_title) {
     return (
