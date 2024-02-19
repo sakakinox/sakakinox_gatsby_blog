@@ -1,6 +1,7 @@
-// src/components/OGPLink.js
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Card, CardActionArea, CardContent, CardMedia, Typography, Box } from '@mui/material';
+import LinkIcon from '@mui/icons-material/Link';
 
 const OGPLink = ({ url }) => {
   const data = useStaticQuery(graphql`
@@ -8,7 +9,7 @@ const OGPLink = ({ url }) => {
     allDataJson {
       edges {
         node {
-          OgpLinks{
+          OgpLinks {
             URL
             ogp {
               og_title
@@ -22,32 +23,67 @@ const OGPLink = ({ url }) => {
     }
   }
   `);
-  
-  const ogpInfo = data.allDataJson.edges
-                  .flatMap(edge => edge.node.OgpLinks) // edges の配列から OgpLinks を抽出し、1つの配列に平坦化
-                  .find(link => link.URL === url);
-                  
-  
 
+  const ogpInfo = data.allDataJson.edges
+                  .flatMap(edge => edge.node.OgpLinks)
+                  .find(link => link.URL === url);
+
+  // OGP情報がない、またはog_titleが空の場合にURLのみを表示
   if (!ogpInfo || !ogpInfo.ogp.og_title) {
     return (
-    <div>
-      OGP情報が見つかりませんでした。, URL: {url}, ${__dirname}
-    </div>
+      <Card sx={{ maxWidth: 700, my: 2, marginLeft: 4}}>
+        <CardActionArea href={url} target="_blank" rel="noopener noreferrer">
+          <CardContent>
+            <Typography variant="body2">
+              {url}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     );
   }
-  
-  return (
-    <a href={url} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', padding: '10px', borderRadius: '5px' }}>
-        {ogpInfo.ogp.og_image && <img src={ogpInfo.ogp.og_image} alt={ogpInfo.ogp.og_title} style={{ width: '160px', height: '120px', marginRight: '10px', borderRadius: '5px' }} />}
-        <div>
-          <div style={{ fontWeight: 'bold' }}>{ogpInfo.ogp.og_title}</div>
-          <div>{ogpInfo.ogp.og_description}</div>
-        </div>
-      </div>
-    </a>
-  );
-};
+
+// OGP情報がある場合にリッチカードを表示
+return (
+  <Card sx={{ display: 'flex', maxWidth: 700, my: 2, marginLeft: 4 }}>
+    <CardActionArea href={url} target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', justifyContent: 'start', flexGrow: 1 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, p: 2 }}>
+        <Typography gutterBottom variant="subtitle1" component="div">
+          {ogpInfo.ogp.og_title}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+            marginBottom: '4px', // 説明文とURLの間のマージンを設定
+          }}
+        >
+          {ogpInfo.ogp.og_description}
+        </Typography>
+        {/* URLテキストとリンクアイコンを表示 */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <LinkIcon sx={{ marginRight: '5px' }} /> {/* アイコンにマージンを追加 */}
+          <Typography variant="body2" sx={{ overflow: 'hidden', textOverflow: 'ellipsis',  }}>
+            {url}
+          </Typography>
+        </Box>
+      </Box>
+      {ogpInfo.ogp.og_image && (
+        <CardMedia
+          component="img"
+          sx={{ width: 151, objectFit: 'cover' }} // 画像の幅を調整
+          image={ogpInfo.ogp.og_image}
+          alt={ogpInfo.ogp.og_title || 'OGP Image'}
+        />
+      )}
+    </CardActionArea>
+  </Card>
+);
+}
 
 export default OGPLink;
