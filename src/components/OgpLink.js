@@ -25,10 +25,10 @@ const OGPLink = ({ url }) => {
   `);
 
   const ogpInfo = data.allDataJson.edges
-                  .flatMap(edge => edge.node.OgpLinks)
-                  .find(link => link.URL === url);
+                  .flatMap(edge => edge.node.OgpLinks || [])
+                  .find(link => link.URL === url || {});
 
-  if (!ogpInfo || !ogpInfo.ogp.og_title) {
+  if (!ogpInfo || !ogpInfo.ogp || !ogpInfo.ogp.og_title) {
     return (
       <Card sx={{ maxWidth: 700, my: 2, marginLeft: 4}}>
         <CardActionArea href={url} target="_blank" rel="noopener noreferrer">

@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent"
 import Hidden from "@mui/material/Hidden"
 import {CalendarToday, Update} from '@mui/icons-material';
 import twemoji from '@twemoji/api'
-import tagStyles from './tagStyles.json';
+import tagStyles from '../../content/data/tagStyles.json';
 
 const PREFIX = "postscard"
 

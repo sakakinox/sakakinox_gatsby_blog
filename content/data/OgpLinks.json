@@ -1,0 +1,24 @@
+{
+  "OgpLinks": [
+    {
+      "URL": "https://docs.cpanel.net/whm/scripts/the-remove_dovecot_index_files-script/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "The remove_dovecot_index_files Script | cPanel & WHM Documentation",
+        "og:site_name": "cPanel & WHM Documentation",
+        "og:image": "",
+        "og:description": "Use the /usr/local/cpanel/scripts/remove_dovecot_index_files script to remove the Dovecot® index logs and cache files from cPanel mail accounts."
+      }
+    },
+    {
+      "URL": "https://stackoverflow.com/questions/59952398/mariadb-service-failed-to-set-up-mount-namespacing-permission-denied-failed",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "mariadb.service: Failed to set up mount namespacing: Permission denied / Failed at step NAMESPACE spawning",
+        "og:site_name": "Stack Overflow",
+        "og:image": "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=73d79a89bded",
+        "og:description": "I just installed MariaDB and the status is :\n\n* mariadb.service - MariaDB 10.3.18 database server\n   Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)\n   Active: "
+      }
+    }
+  ]
+}

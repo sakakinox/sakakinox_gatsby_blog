@@ -8,7 +8,7 @@ import Postcard from "../components/postscard"
 import Comments from '../components/Comments'
 import _ from "lodash"
 import twemoji from '@twemoji/api'
-import tagStyles from '../components/tagStyles.json';
+import tagStyles from '../../content/data/tagStyles.json';
 
 const BlogPostTemplate = ({ data, location, children }) => {
   const post = data.mdx;
