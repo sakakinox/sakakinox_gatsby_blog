@@ -28,7 +28,6 @@ const OGPLink = ({ url }) => {
                   .flatMap(edge => edge.node.OgpLinks)
                   .find(link => link.URL === url);
 
-  // OGP情報がない、またはog_titleが空の場合にURLのみを表示
   if (!ogpInfo || !ogpInfo.ogp.og_title) {
     return (
       <Card sx={{ maxWidth: 700, my: 2, marginLeft: 4}}>
@@ -43,7 +42,6 @@ const OGPLink = ({ url }) => {
     );
   }
 
-// OGP情報がある場合にリッチカードを表示
 return (
   <Card sx={{ display: 'flex', maxWidth: 700, my: 2, marginLeft: 4 }}>
     <CardActionArea href={url} target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', justifyContent: 'start', flexGrow: 1 }}>
@@ -60,14 +58,13 @@ return (
             WebkitLineClamp: 1,
             WebkitBoxOrient: 'vertical',
             textOverflow: 'ellipsis',
-            marginBottom: '4px', // 説明文とURLの間のマージンを設定
+            marginBottom: '4px',
           }}
         >
           {ogpInfo.ogp.og_description}
         </Typography>
-        {/* URLテキストとリンクアイコンを表示 */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <LinkIcon sx={{ marginRight: '5px' }} /> {/* アイコンにマージンを追加 */}
+          <LinkIcon sx={{ marginRight: '5px' }} />
           <Typography variant="body2" sx={{ overflow: 'hidden', textOverflow: 'ellipsis',  }}>
             {url}
           </Typography>
@@ -76,7 +73,7 @@ return (
       {ogpInfo.ogp.og_image && (
         <CardMedia
           component="img"
-          sx={{ width: 151, objectFit: 'cover' }} // 画像の幅を調整
+          sx={{ width: 151, objectFit: 'cover' }}
           image={ogpInfo.ogp.og_image}
           alt={ogpInfo.ogp.og_title || 'OGP Image'}
         />
