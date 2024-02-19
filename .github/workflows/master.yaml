@@ -52,6 +52,9 @@ jobs:
         - name: format
           run: npm run format
 
+        - name: ogpfetch
+          run: npm run ogpfetch
+
         - name: test
           run: npm run test
 
