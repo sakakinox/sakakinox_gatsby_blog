@@ -4,6 +4,7 @@ import { CssBaseline, Grid, Typography, Chip, Stack } from "@mui/material"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Postcard from "../components/postscard"
+import Comments from '../components/Comments'
 import _ from "lodash"
 
 const BlogPostTemplate = ({ data, location, children }) => {
