@@ -55,11 +55,3 @@ const fetchAndSaveOGPInfo = async (url) => {
 
 module.exports = { fetchAndSaveOGPInfo };
 
-// 使用例
-//fetchAndSaveOGPInfo('https://example.com/').then(ogp => {
-//    console.log('Fetched OGP:', ogp);
-//}).catch(console.error);
-//
-//fetchAndSaveOGPInfo('https://another-example.com/').then(ogp => {
-//    console.log('Fetched OGP:', ogp);
-//}).catch(console.error);
