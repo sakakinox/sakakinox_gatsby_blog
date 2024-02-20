@@ -279,6 +279,226 @@
         "og:image": "https://www.apple.com/v/airpods-pro/i/images/meta/og__eui2mpgzwyaa_overview.png?202312251601",
         "og:description": "AirPods Pro（第2世代）。適応型オーディオ、最大2倍の雑音を消すアクティブノイズキャンセリング、外部音取り込みモード。そして、パーソナライズされた空間オーディオを届けます。"
       }
+    },
+    {
+      "URL": "https://play.google.com/store/apps/details?id=jp.go.JPKI.JPKIpinreset",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "JPKI暗証番号リセット - Apps on Google Play",
+        "og:site_name": "",
+        "og:image": "https://play-lh.googleusercontent.com/Xs6vcqjPaRp3sWihowku-47gbVQBt1G4yFh045X1Wm6ZnSezppfNXPU4EOqJTh0Qlg",
+        "og:description": "It is an application that provides a reservation method when initializing and resetting the signature password of My Number Card (6 to 16 uppercase letters) at convenience stores."
+      }
+    },
+    {
+      "URL": "https://apps.apple.com/jp/app/jpki%E6%9A%97%E8%A8%BC%E7%95%AA%E5%8F%B7%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88/id1591199086?mt=8",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "JPKI暗証番号リセット",
+        "og:site_name": "App Store",
+        "og:image": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/8d/52/46/8d52464c-97a5-7f1f-321e-d38de0eff17b/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x630wa.png",
+        "og:description": "マイナンバーカードの「署名用パスワード」（英大文字数字6文字以上16文字以下）をコンビニ等で初期化・再設定する際の予約手段を提供するアプリです.※コンビニ交付やマイナポータルログイン時に使用する…"
+      }
+    },
+    {
+      "URL": "https://play.google.com/store/apps/details?id=jp.go.jpki.mobile.utility&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "JPKI利用者ソフト - Apps on Google Play",
+        "og:site_name": "",
+        "og:image": "https://play-lh.googleusercontent.com/YPONHRUILx8s8a7-XNt2-wGcFnLEf3jvCj-7o0YW9GiIbk_cVQG9e8mIuVGMxTeLOGAn",
+        "og:description": "It is an application for use of the electronic certificate of public personal authentication."
+      }
+    },
+    {
+      "URL": "https://apps.apple.com/jp/app/jpki%E5%88%A9%E7%94%A8%E8%80%85%E3%82%BD%E3%83%95%E3%83%88/id1481154805?mt=8",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "JPKI利用者ソフト",
+        "og:site_name": "App Store",
+        "og:image": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/b4/c9/3b/b4c93b98-ef76-336c-e574-efa27c57af61/AppIcon-1x_U007emarketing-0-5-0-85-220.png/1200x630wa.png",
+        "og:description": "マイナンバーカードに搭載された電子証明書（署名用電子証明書及び利用者証明用電子証明書）を利用する機能（利用者クライアントソフト）を提供するアプリです。\n\n本アプリを利用することにより、電子証明書の有効期限や有効性をiPhoneで確認することができます。\nなお、本アプリではiPhoneをカードリーダーとしてパソコンに接続することはできません。\n\n【主な機能】\n－電子証明書表示機能\n　マイナンバーカードに搭載された電子証明書等の内容を確認できます。\n－自分の電子証明書の有効性確認機能\n　マイナンバーカードに搭載された電子証明書の有効性を確認できます。\n－パスワード変更機能\n　マイナンバーカードに設…"
+      }
+    },
+    {
+      "URL": "https://www.jpki.go.jp/jpkiidreset/howto/index.html",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.jpki.go.jp/download/index.html",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "gatsby-plugin-google-gtag | Gatsby",
+        "og:site_name": "Gatsby",
+        "og:image": "https://www.gatsbyjs.com/og-image.png",
+        "og:description": "gatsby-plugin-google-gtag Easily add Google Global Site Tag to your Gatsby site. The global site tag (gtag.js) is a JavaScript tagging…"
+      }
+    },
+    {
+      "URL": "https://developers.google.com/analytics/devguides/collection/gtagjs/migration?hl=ja",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "analytics.js から gtag.js に移行する  |  ウェブ向けユニバーサル アナリティクス（gtag.js）  |  Google for Developers",
+        "og:site_name": "Google for Developers",
+        "og:image": "https://www.gstatic.com/devrel-devsite/prod/v5ba20c1e081870fd30b7c8ebfa8711369a575956c1f44323664285c05468c6a4/developers/images/opengraph/orange.png",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://discourse.haproxy.org/t/frame-ancestors-directive-issues/3270/3",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Frame-ancestors directive issues",
+        "og:site_name": "HAProxy community",
+        "og:image": "https://global.discourse-cdn.com/business6/uploads/haproxy/original/2X/0/05388fe18aa1322605dbfad1030e0745ef99c502.png",
+        "og:description": "Thank you for your quick response. However, haproxy does not start with that syntax. Error log says ’http-response set-header’ expects exactly 2 arguments\""
+      }
+    },
+    {
+      "URL": "https://sakakinox.net/posts/p11/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "さくらのクラウドのメンテナンス情報の有無をzabbixで監視する",
+        "og:site_name": "sakakinox.net",
+        "og:image": "https://sakakinox.net/static/logo_1200x630-d5a899977ade361444bf809644f8ccab.png",
+        "og:description": "さくらのクラウドは不定期にわりと高頻度にメンテナンスが実施される 指定された日までに再起動して、別ホストに移さなければ、不意の再起動を食らう。 メールで連絡は来るが、見落とすことが多かったので、zabbix でメンテナンスの有無を監視した。\n\nsakuracloud-maintenance-checker\n https…"
+      }
+    },
+    {
+      "URL": "https://www.zabbix.com/documentation/4.2/en/manual/appendix/triggers/functions",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://kikunantoka.com/2019/12/01--install-tags/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "GatsbyJSで作っているブログにタグ機能を導入した",
+        "og:site_name": "キクナントカドットコム",
+        "og:image": "https://kikunantoka.com/assets/images/ogp.png",
+        "og:description": "はじめに ギフティ Advent Calendar 2019 - Qiita の1日目の記事。このブログにタグ機能を導入したので、その時の手順を解説する。基本的に 公式の記事 に従えば良いのだが、差分が分かりづらいのと、自分で理解した内容を補足したいので、記事にした。 前提 このブログはGatsby公式のgatsby…"
+      }
+    },
+    {
+      "URL": "https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Creating Tags Pages for Blog Posts | Gatsby",
+        "og:site_name": "Gatsby",
+        "og:image": "https://www.gatsbyjs.com/og-image.png",
+        "og:description": "Creating tag pages for your blog post is a way to let visitors browse related content. To add tags to your blog posts, you will first want…"
+      }
+    },
+    {
+      "URL": "https://dev.classmethod.jp/articles/amazon-linux-2-cloudwatch-agent-error-solution/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "[小ネタ]Amazon Linux 2 で CloudWatch エージェントを起動しようとしてハマった話 | DevelopersIO",
+        "og:site_name": "クラスメソッド発「やってみた」系技術メディア | DevelopersIO",
+        "og:image": "https://devio2023-media.developers.io/wp-content/uploads/2019/05/amazon-ec2.png",
+        "og:description": "エージェント 起動でハマって ああ悲し"
+      }
+    },
+    {
+      "URL": "https://www.ubuntuupdates.org/package/core/jammy/universe/proposed/collectd",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://collectd.org/documentation.shtml",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.timbreofprogram.info/blog/archives/1553",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://wiki.archlinux.jp/index.php/Systemd/%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BC",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://www.freedesktop.org/software/systemd/man/systemd.exec.html",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://help.ubuntu.com/community/UFW",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
+    },
+    {
+      "URL": "https://firewalld.org/documentation/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Documentation",
+        "og:site_name": "firewalld",
+        "og:image": "",
+        "og:description": "Welcome to the firewalld project homepage! Firewalld provides a dynamically managed firewall with support for network/firewall zones that defines the trust level of network connections or interfaces."
+      }
+    },
+    {
+      "URL": "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Chapter 45. Using and configuring firewalld Red Hat Enterprise Linux 8 | Red Hat Customer Portal",
+        "og:site_name": "Red Hat Customer Portal",
+        "og:image": "https://access.redhat.com/webassets/avalon/g/shadowman-200.png",
+        "og:description": "Access Red Hat’s knowledge, guidance, and support through your subscription."
+      }
     }
   ]
 }
