@@ -25,7 +25,7 @@ const OGPLink = ({ url }) => {
   `);
 
   const ogpInfo = data.allDataJson.edges
-                  .flatMap(edge => edge.node.OgpLinks)
+                  .flatMap(edge => edge.node.OgpLinks || [])
                   .find(link => link.URL === url);
 
   if (!ogpInfo || !ogpInfo.ogp || !ogpInfo.ogp.og_title) {
@@ -66,7 +66,7 @@ return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <LinkIcon sx={{ marginRight: '5px' }} />
           <Typography variant="body2" sx={{ overflow: 'hidden', textOverflow: 'ellipsis',  }}>
-            {url}
+            {ogpInfo.ogp.og_site_name || url}
           </Typography>
         </Box>
       </Box>
