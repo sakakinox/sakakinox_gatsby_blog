@@ -46,7 +46,10 @@ return (
   <Card sx={{ display: 'flex', maxWidth: 700, my: 2, marginLeft: 4 }}>
     <CardActionArea href={url} target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', justifyContent: 'start', flexGrow: 1 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, p: 2 }}>
-        <Typography gutterBottom variant="subtitle1" component="div">
+        <Typography
+          variant="subtitle2"
+          component="div"
+        >
           {ogpInfo.ogp.og_title}
         </Typography>
         <Typography
