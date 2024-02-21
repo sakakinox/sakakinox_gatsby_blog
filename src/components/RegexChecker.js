@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
-import { Box, Card, CardContent } from "@mui/material"
+import { Card, CardContent } from "@mui/material"
 
 const RegexChecker = ({ initialRegex = "" }) => {
   const [input, setInput] = useState("")
@@ -31,7 +31,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
 
   const getMatchResult = (text, regex) => {
     if (!text || !regex || !regex.source) {
-      return text ? [[{ text, isMatch: false }]] : [];
+      return text ? [[{ text, isMatch: false }]] : []
     }
     const lines = text.split("\n")
     const matchResult = lines.map(line => {
@@ -100,7 +100,7 @@ const RegexChecker = ({ initialRegex = "" }) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Card sx={{overflow: "scroll"}} variant="outlined">
+          <Card sx={{ overflow: "scroll" }} variant="outlined">
             <CardContent>
               <Typography component="div">
                 <pre>

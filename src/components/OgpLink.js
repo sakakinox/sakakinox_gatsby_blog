@@ -6,7 +6,7 @@ import LinkIcon from '@mui/icons-material/Link';
 const OGPLink = ({ url }) => {
   const data = useStaticQuery(graphql`
   query {
-    allDataJson {
+    allDataJson(filter: {OgpLinks: {}}) {
       edges {
         node {
           OgpLinks {
@@ -25,10 +25,10 @@ const OGPLink = ({ url }) => {
   `);
 
   const ogpInfo = data.allDataJson.edges
-                  .flatMap(edge => edge.node.OgpLinks)
+                  .flatMap(edge => edge.node.OgpLinks || [])
                   .find(link => link.URL === url);
 
-  if (!ogpInfo || !ogpInfo.ogp.og_title) {
+  if (!ogpInfo || !ogpInfo.ogp || !ogpInfo.ogp.og_title) {
     return (
       <Card sx={{ maxWidth: 700, my: 2, marginLeft: 4}}>
         <CardActionArea href={url} target="_blank" rel="noopener noreferrer">
@@ -66,7 +66,7 @@ return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <LinkIcon sx={{ marginRight: '5px' }} />
           <Typography variant="body2" sx={{ overflow: 'hidden', textOverflow: 'ellipsis',  }}>
-            {url}
+            {ogpInfo.ogp.og_site_name || url}
           </Typography>
         </Box>
       </Box>

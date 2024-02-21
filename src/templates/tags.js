@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import { CssBaseline, Typography } from "@mui/material"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 import Postcard from "../components/postscard"
 
 const Tags = ({ pageContext, data, location }) => {
@@ -71,11 +71,13 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            gitAuthorTime(formatString: "MMMM DD, YYYY")
           }
           excerpt(pruneLength: 160)
           body
           frontmatter {
             title
+            tags
             date(formatString: "MMMM DD, YYYY")
             description
           }

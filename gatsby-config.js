@@ -129,7 +129,7 @@ module.exports = {
                 ) {
                   nodes {
                     excerpt
-                    html
+                    body
                     fields { 
                       slug 
                     }

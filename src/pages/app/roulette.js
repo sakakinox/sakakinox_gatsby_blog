@@ -3,15 +3,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import Roulette from "../../components/Roulette"
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/Seo"
+import Comments from "../../components/Comments"
 
 function RoulettePage({ data }) {
   const { title } = data.site.siteMetadata
 
   return (
     <Layout location={"/app/roulette"} title={title}>
-      <SEO title="Roulette App" />
+      <Seo title="Roulette App" />
       <Roulette title={title} />
+      <hr />
+      <Comments />
     </Layout>
   )
 }

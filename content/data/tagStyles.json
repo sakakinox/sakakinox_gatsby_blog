@@ -1,0 +1,14 @@
+{
+    "Develop": {
+      "bgcolor": "#ffe0b2",
+      "icon": "💻"
+    },
+    "Gadget": {
+      "bgcolor": "#b2dfdb",
+      "icon": "⚙️"
+    },
+    "default": {
+        "bgcolor": "#ffcdd2",
+        "icon": "📝"
+    }
+  }

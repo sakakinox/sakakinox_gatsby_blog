@@ -2,18 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import RegexChecker from "../../components/RegexChecker"
-import SEO from "../../components/seo"
+import Seo from "../../components/Seo"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
+import Comments from "../../components/Comments"
 
-const RegexPage = ({data}) => {
-    const { title } = data.site.siteMetadata
+const RegexPage = ({ data }) => {
+  const { title } = data.site.siteMetadata
   return (
     <Layout location={"/app/regex"} title={title}>
-      <SEO title="Regex Checker" />
+      <Seo title="Regex Checker" />
       <RegexChecker />
       <Table>
         <TableHead>
@@ -47,7 +48,9 @@ const RegexPage = ({data}) => {
           <TableRow>
             <TableCell>5</TableCell>
             <TableCell>\W</TableCell>
-            <TableCell>英数字またはアンダースコア以外の任意の文字を表します。</TableCell>
+            <TableCell>
+              英数字またはアンダースコア以外の任意の文字を表します。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>6</TableCell>
@@ -62,7 +65,9 @@ const RegexPage = ({data}) => {
           <TableRow>
             <TableCell>8</TableCell>
             <TableCell>[abc]</TableCell>
-            <TableCell>'a'、'b'、または'c'のいずれかの文字を表します。</TableCell>
+            <TableCell>
+              'a'、'b'、または'c'のいずれかの文字を表します。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>9</TableCell>
@@ -91,7 +96,7 @@ const RegexPage = ({data}) => {
           </TableRow>
           <TableRow>
             <TableCell>14</TableCell>
-            <TableCell>{'^'}</TableCell>
+            <TableCell>{"^"}</TableCell>
             <TableCell>文字列の先頭を表します。</TableCell>
           </TableRow>
           <TableRow>
@@ -102,22 +107,30 @@ const RegexPage = ({data}) => {
           <TableRow>
             <TableCell>16</TableCell>
             <TableCell>*</TableCell>
-            <TableCell>直前の要素が0回以上繰り返されることを表します。</TableCell>
+            <TableCell>
+              直前の要素が0回以上繰り返されることを表します。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>17</TableCell>
             <TableCell>+</TableCell>
-            <TableCell>直前の要素が1回以上繰り返されることを表します。</TableCell>
+            <TableCell>
+              直前の要素が1回以上繰り返されることを表します。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>18</TableCell>
             <TableCell>?</TableCell>
-            <TableCell>直前の要素が0回または1回出現することを表します。</TableCell>
+            <TableCell>
+              直前の要素が0回または1回出現することを表します。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>19</TableCell>
             <TableCell>|</TableCell>
-            <TableCell>OR条件（選択）を表します。左右の表現のうち、どちらかを満たす場合にマッチします。</TableCell>
+            <TableCell>
+              OR条件（選択）を表します。左右の表現のうち、どちらかを満たす場合にマッチします。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>20</TableCell>
@@ -132,25 +145,33 @@ const RegexPage = ({data}) => {
           <TableRow>
             <TableCell>22</TableCell>
             <TableCell>(abc)</TableCell>
-            <TableCell>キャプチャグループを作成し、グループ内の文字列にマッチします。</TableCell>
+            <TableCell>
+              キャプチャグループを作成し、グループ内の文字列にマッチします。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>23</TableCell>
-            <TableCell>{'{n}'}</TableCell>
+            <TableCell>{"{n}"}</TableCell>
             <TableCell>直前の要素がn回繰り返されることを表します。</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>24</TableCell>
-            <TableCell>{'{n,}'}</TableCell>
-            <TableCell>直前の要素がn回以上繰り返す場合にマッチします。</TableCell>
+            <TableCell>{"{n,}"}</TableCell>
+            <TableCell>
+              直前の要素がn回以上繰り返す場合にマッチします。
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>25</TableCell>
-            <TableCell>{'{n,m}'}</TableCell>
-            <TableCell>直前の要素がn回以上、m回以下繰り返す場合にマッチします。</TableCell>
+            <TableCell>{"{n,m}"}</TableCell>
+            <TableCell>
+              直前の要素がn回以上、m回以下繰り返す場合にマッチします。
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>
+      <hr />
+      <Comments />
     </Layout>
   )
 }
