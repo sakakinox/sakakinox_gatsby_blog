@@ -499,6 +499,36 @@
         "og:image": "https://access.redhat.com/webassets/avalon/g/shadowman-200.png",
         "og:description": "Access Red Hat’s knowledge, guidance, and support through your subscription."
       }
+    },
+    {
+      "URL": "https://www.facebook.com/toshiaki.sakyoh",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "左京 利章",
+        "og:site_name": "",
+        "og:image": "https://scontent-itm1-1.xx.fbcdn.net/v/t1.18169-1/12195871_839889506129851_8287602707571502635_n.jpg?stp=dst-jpg_p720x720&_nc_cat=104&ccb=1-7&_nc_sid=1d5463&_nc_ohc=3JqaJUXMNmUAX-aKddp&_nc_ht=scontent-itm1-1.xx&oh=00_AfBxncngaG6oRCcoIwR4pUQPERhWUL7VLmKHTXhK1xIGOw&oe=6602F9EB",
+        "og:description": "左京 利章さんはFacebookを利用しています。Facebookに登録して、左京 利章さんや他の知り合いと交流しましょう。Facebookは、人々が簡単に情報をシェアできる、オープンでつながりのある世界の構築をお手伝いします。"
+      }
+    },
+    {
+      "URL": "https://ogp.me/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Open Graph protocol",
+        "og:site_name": "",
+        "og:image": "https://ogp.me/logo.png",
+        "og:description": "The Open Graph protocol enables any web page to become a rich object in a social graph."
+      }
+    },
+    {
+      "URL": "https://chat.openai.com/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "",
+        "og:site_name": "",
+        "og:image": "",
+        "og:description": ""
+      }
     }
   ]
 }
