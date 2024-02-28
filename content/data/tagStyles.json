@@ -7,6 +7,10 @@
       "bgcolor": "#b2dfdb",
       "icon": "⚙️"
     },
+    "Machine Learning": {
+      "bgcolor": "#9fa8da",
+      "icon": "🧠"
+    },
     "default": {
         "bgcolor": "#ffcdd2",
         "icon": "📝"
