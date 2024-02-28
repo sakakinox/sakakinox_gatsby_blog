@@ -8,7 +8,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import TwitterIcon from "@mui/icons-material/Twitter"
+import XIcon from "@mui/icons-material/X"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled"
 import { Grid, IconButton } from "@mui/material"
@@ -72,7 +72,7 @@ const Bio = () => {
       <Grid item>
         <IconButton>
           <Link href={`https://twitter.com/${social?.twitter || ``}`}>
-            <TwitterIcon />
+            <XIcon />
           </Link>
         </IconButton>
         <IconButton>
