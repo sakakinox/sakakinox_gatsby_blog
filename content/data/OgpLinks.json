@@ -529,6 +529,36 @@
         "og:image": "",
         "og:description": ""
       }
+    },
+    {
+      "URL": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "GitHub - AUTOMATIC1111/stable-diffusion-webui: Stable Diffusion web UI",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/579a661a8f2e82cb84fa04eabe4d2e4b3ea8545319fd387763f344e2dca72504/AUTOMATIC1111/stable-diffusion-webui",
+        "og:description": "Stable Diffusion web UI. Contribute to AUTOMATIC1111/stable-diffusion-webui development by creating an account on GitHub."
+      }
+    },
+    {
+      "URL": "https://civitai.com/models/110761/anythingv5nijimix",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "AnythingV5NijiMix - 25 (BEST) | Stable Diffusion Checkpoint | Civitai",
+        "og:site_name": "",
+        "og:image": null,
+        "og:description": "NOTICE: this model has been archived becuase I think it was bad A mix of AnythingV5 and a few Niji LorAs. 25 is the best and what I suggest you use."
+      }
+    },
+    {
+      "URL": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Command-Line-Arguments-And-Settings",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Command Line Arguments and Settings",
+        "og:site_name": "GitHub",
+        "og:image": "https://opengraph.githubassets.com/579a661a8f2e82cb84fa04eabe4d2e4b3ea8545319fd387763f344e2dca72504/AUTOMATIC1111/stable-diffusion-webui",
+        "og:description": "Stable Diffusion web UI. Contribute to AUTOMATIC1111/stable-diffusion-webui development by creating an account on GitHub."
+      }
     }
   ]
 }
