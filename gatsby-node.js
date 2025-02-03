@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      console.log(post.frontmatter.title + " : " + post.frontmatter.published)
+      console.log(post.fields.slug + " : " + post.frontmatter.title + " : " + post.frontmatter.published)
       //if (post.frontmatter.published != false) {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
