@@ -1,3 +1,5 @@
+const { ignore } = require("gatsby/dist/schema/infer/inference-metadata")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -23,6 +25,7 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+        ignore: [`**/.*`],
       },
     },
     {
