@@ -559,6 +559,26 @@
         "og:image": "https://opengraph.githubassets.com/579a661a8f2e82cb84fa04eabe4d2e4b3ea8545319fd387763f344e2dca72504/AUTOMATIC1111/stable-diffusion-webui",
         "og:description": "Stable Diffusion web UI. Contribute to AUTOMATIC1111/stable-diffusion-webui development by creating an account on GitHub."
       }
+    },
+    {
+      "URL": "https://discuss.linuxcontainers.org/t/important-notice-for-lxd-users-image-server/18479",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "Important notice for LXD users (image server)",
+        "og:site_name": "Linux Containers Forum",
+        "og:image": "https://discuss.linuxcontainers.org/uploads/default/original/1X/c1153376e1c1ae174158de701786c381bfe6e8ea.png",
+        "og:description": "Introduction The image server at https://images.linuxcontainers.org has been in operation since early 2014, first offering images to LXC users through the download template and then once LXD came around, it was expanded to also provide LXD container and eventually virtual-machine images.  The infrastructure used to build and distribute those images has always been purposefully kept community owned and operated. That’s so that every distribution represented on the image server is on equal footing..."
+      }
+    },
+    {
+      "URL": "https://incus-ja.readthedocs.io/ja/latest/howto/server_migrate_lxd/",
+      "isFetched": true,
+      "ogp": {
+        "og:title": "LXD からの移行",
+        "og:site_name": "Incus documentation",
+        "og:image": "https://linuxcontainers.org/static/img/containers.png",
+        "og:description": "Incus は lxd-to-incus という名前のツールがあり、既存の LXD 環境を Incus に変換するのに使えます。 これが正しく動作するためには、Incus の最新の安定版を インストール し、しかし初期化はしないようにしてください。 代わりに、 incus info と lxc info の両方が正常に動くことを確認し、次に lxd-to-incus を動かしてあなたのデータ..."
+      }
     }
   ]
 }
