@@ -9,19 +9,19 @@ jobs:
     build-deploy:
         runs-on: ubuntu-20.04
         steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
           with:
             fetch-depth: 0
 
         - name: Install SSH key
-          uses: shimataro/ssh-key-action@v2
+          uses: shimataro/ssh-key-action@v4
           with:
             key: ${{ secrets.SSH_KEY }}
             name: id_ecdsa
             known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
         - name: setup node
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@v4
           with:
             node-version: '18.x'
 
