@@ -71,3 +71,4 @@ yarn-error.log
 # Temp files
 ._.DS_Store
 ._*.md
+._*
