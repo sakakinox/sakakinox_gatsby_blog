@@ -13,20 +13,13 @@ jobs:
           with:
             fetch-depth: 0
 
-        - name: Install SSH key
-          uses: shimataro/ssh-key-action@v4
-          with:
-            key: ${{ secrets.SSH_KEY }}
-            name: id_ecdsa
-            known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
         - name: setup node
           uses: actions/setup-node@v4
           with:
             node-version: '18.x'
 
         - name: Cache dependencies
-          uses: actions/cache@v1
+          uses: actions/cache@v4
           with:
             path: ~/.npm
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
