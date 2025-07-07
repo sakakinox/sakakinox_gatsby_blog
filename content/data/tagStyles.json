@@ -3,6 +3,10 @@
       "bgcolor": "#ffe0b2",
       "icon": "💻"
     },
+    "Home Assistant": {
+      "bgcolor": "#c5c0ae",
+      "icon": "🏠"
+    },
     "Gadget": {
       "bgcolor": "#b2dfdb",
       "icon": "⚙️"
@@ -15,4 +19,4 @@
         "bgcolor": "#ffcdd2",
         "icon": "📝"
     }
-  }
+}
